@@ -1,123 +1,31 @@
 .syllabus-container {
     padding: 20px;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: var(--spacing-lg);
 }
 
 h2 {
-    color: #333;
     margin: 0;
-    font-size: 24px;
-    font-weight: 400;
+    color: var(--text-primary);
 }
 
 .actions {
     display: flex;
-    gap: 10px;
+    gap: var(--spacing-md);
 }
 
-.btn-primary {
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-}
+/* Table styles inherited from global styles.css */
 
-.btn-primary:hover {
-    background-color: #0069d9;
-}
-
-.btn-secondary {
-    background-color: #6c757d;
-    color: white;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 14px;
-}
-
-.btn-secondary:hover {
-    background-color: #5a6268;
-}
-
-/* List Layout */
-.list-container {
-    background: white;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-}
-
-.list-header {
+.actions-cell {
     display: flex;
-    background-color: #f8f9fa;
-    padding: 12px 15px;
-    border-bottom: 2px solid #dee2e6;
-    font-weight: 600;
-    color: #495057;
-}
-
-.list-row {
-    display: flex;
-    padding: 12px 15px;
-    border-bottom: 1px solid #eee;
+    gap: 12px;
     align-items: center;
-}
-
-.list-row:last-child {
-    border-bottom: none;
-}
-
-.list-row:hover {
-    background-color: #f8f9fa;
-}
-
-/* Columns */
-.col-title {
-    flex: 1;
-    font-weight: 500;
-    color: #007bff;
-}
-
-.col-desc {
-    flex: 2;
-    color: #666;
-}
-
-.col-actions {
-    flex: 0 0 150px;
-    display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    gap: 10px;
-}
-
-/* Action Links */
-.action-link {
-    text-decoration: none;
-    font-size: 14px;
-}
-
-.manage-link {
-    color: #007bff;
-    font-weight: 500;
-}
-
-.manage-link:hover {
-    text-decoration: underline;
-}
-
-.separator {
-    color: #ccc;
+    justify-content: flex-start;
 }
 
 .icon-btn {
@@ -125,15 +33,21 @@ h2 {
     border: none;
     cursor: pointer;
     font-size: 1.1rem;
+    color: var(--text-secondary);
+    transition: color 0.2s;
     padding: 0;
     line-height: 1;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
 }
 
-.delete-btn {
-    color: #dc3545;
+.icon-btn:hover {
+    color: var(--primary);
 }
 
-.delete-btn:disabled {
-    color: #ccc;
+.icon-btn:disabled {
+    color: var(--text-muted);
     cursor: not-allowed;
+    opacity: 0.5;
 }

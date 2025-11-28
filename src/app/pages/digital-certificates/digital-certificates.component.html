@@ -14,24 +14,24 @@
         <div class="filters">
             <div class="filter-group">
                 <label>Filter by Course:</label>
-                <select>
+                <select class="form-control">
                     <option>--Select--</option>
                 </select>
             </div>
             <div class="filter-group">
                 <label>Filter by Trainee Group:</label>
-                <select>
+                <select class="form-control">
                     <option>--Select--</option>
                 </select>
             </div>
-            <button class="btn-apply">Apply</button>
+            <button class="btn">Apply</button>
         </div>
     </div>
 
     <div class="table-controls">
         <div class="entries-control">
             Show
-            <select>
+            <select class="form-control">
                 <option>10</option>
                 <option>25</option>
                 <option>50</option>
@@ -39,7 +39,7 @@
             entries
         </div>
         <div class="search-control">
-            Search: <input type="text">
+            Search: <input type="text" class="form-control">
         </div>
     </div>
 
@@ -70,7 +70,11 @@
                     <td>{{ req.completionDate }}</td>
                     <td>{{ req.approvedOn }}</td>
                     <td>{{ req.approvedBy }}</td>
-                    <td><a href="javascript:void(0)" class="download-link">Download</a></td>
+                    <td class="actions-cell">
+                        <button class="btn-download" title="Download Certificate">
+                            <span class="material-icons">download</span>
+                        </button>
+                    </td>
                 </tr>
             </tbody>
         </table>

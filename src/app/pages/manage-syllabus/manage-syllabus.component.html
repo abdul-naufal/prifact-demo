@@ -2,30 +2,34 @@
     <div class="header">
         <h2>Manage Syllabus</h2>
         <div class="actions">
-            <button class="btn-secondary">Import Subjects</button>
-            <button class="btn-primary">Create New Syllabus</button>
+            <button class="btn btn-outline">Import Subjects</button>
+            <button class="btn">Create New Syllabus</button>
         </div>
     </div>
 
-    <div class="list-container">
-        <div class="list-header">
-            <div class="col-title">Title</div>
-            <div class="col-desc">Description</div>
-            <div class="col-actions">Actions</div>
-        </div>
-
-        <div class="list-row" *ngFor="let item of syllabusList">
-            <div class="col-title">{{ item.title }}</div>
-            <div class="col-desc">{{ item.description }}</div>
-            <div class="col-actions">
-                <a [routerLink]="['/manage-syllabus', item.id]" class="action-link manage-link">Manage</a>
-                <span class="separator">|</span>
-                <button class="icon-btn delete-btn" [disabled]="item.isLocked"
-                    [title]="item.isLocked ? 'Locked' : 'Delete'">
-                    <span *ngIf="!item.isLocked">🗑</span>
-                    <span *ngIf="item.isLocked">🔒</span>
-                </button>
-            </div>
-        </div>
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let item of syllabusList">
+                    <td>{{ item.title }}</td>
+                    <td>{{ item.description }}</td>
+                    <td class="actions-cell">
+                        <a [routerLink]="['/manage-syllabus', item.id]" class="icon-btn" title="Manage">⚙</a>
+                        <button class="icon-btn" [disabled]="item.isLocked"
+                            [title]="item.isLocked ? 'Locked' : 'Delete'">
+                            <span *ngIf="!item.isLocked">🗑</span>
+                            <span *ngIf="item.isLocked">🔒</span>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>

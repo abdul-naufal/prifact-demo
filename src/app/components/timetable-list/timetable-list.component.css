@@ -1,31 +1,4 @@
-/* Table styles inherited from global styles.css */
-
-.badge {
-    padding: 4px 8px;
-    border-radius: 12px;
-    font-size: 0.85rem;
-    font-weight: 500;
-}
-
-.badge.failed {
-    background-color: #fdecea;
-    color: #c0392b;
-}
-
-.badge.configuring {
-    background-color: #fff8e1;
-    color: #f39c12;
-}
-
-.badge.queued {
-    background-color: #ebf5fb;
-    color: #3498db;
-}
-
-.badge.completed {
-    background-color: #e8f8f5;
-    color: #27ae60;
-}
+/* Table styles and status badges inherited from global styles.css */
 
 .actions-cell {
     display: flex;
@@ -43,29 +16,13 @@
 }
 
 .icon-btn:hover {
-    color: #3498db;
+    color: var(--primary);
 }
 
-.btn-manage {
-    background-color: #f39c12;
-    color: white;
-    border: none;
-    padding: 4px 8px;
-    border-radius: 4px;
-    cursor: pointer;
-    font-size: 0.8rem;
-    font-weight: 500;
+.icon-btn-warning {
+    color: var(--warning);
 }
 
-.btn-manage:hover {
-    background-color: #d68910;
-}
-
-.btn-manage-orange {
-    background-color: #fd7e14;
-    border-color: #fd7e14;
-}
-
-.btn-manage-orange:hover {
-    background-color: #e96b02;
+.icon-btn-warning:hover {
+    color: #d68910;
 }

@@ -5,8 +5,8 @@
             <h2>Manage Syllabus</h2>
         </div>
         <div class="actions">
-            <button class="btn-secondary">Edit Syllabus Details</button>
-            <button class="btn-primary">Add New Subject</button>
+            <button class="btn btn-outline">Edit Syllabus Details</button>
+            <button class="btn">Add New Subject</button>
         </div>
     </div>
 
@@ -22,10 +22,10 @@
     </div>
 
     <div class="table-controls">
-        <input type="text" placeholder="Search..." class="search-input">
+        <input type="text" placeholder="Search..." class="search-input form-control">
     </div>
 
-    <div class="subjects-container">
+    <div class="table-container">
         <table>
             <thead>
                 <tr>
@@ -55,11 +55,9 @@
                     <td>{{ subject.isTheory }}</td>
                     <td>{{ subject.subjectType }}</td>
                     <td class="actions-cell">
-                        <a href="javascript:void(0)" class="action-link">Manage</a>
-                        <span class="separator">|</span>
-                        <a href="javascript:void(0)" class="action-link">Edit</a>
-                        <span class="separator">|</span>
-                        <a href="javascript:void(0)" class="action-link delete-link">Delete</a>
+                        <button class="icon-btn" title="Manage">⚙</button>
+                        <button class="icon-btn" title="Edit">✎</button>
+                        <button class="icon-btn" title="Delete">🗑</button>
                     </td>
                 </tr>
             </tbody>

@@ -28,11 +28,10 @@
         </div>
 
         <div class="form-actions">
-            <button class="btn btn-primary" (click)="onSave()"
-                [disabled]="!selectedCourse || !selectedSubject || !title">
+            <button class="btn" (click)="onSave()" [disabled]="!selectedCourse || !selectedSubject || !title">
                 Save
             </button>
-            <button class="btn btn-secondary" (click)="onCancel()">
+            <button class="btn btn-outline" (click)="onCancel()">
                 Cancel
             </button>
         </div>

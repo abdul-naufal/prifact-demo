@@ -15,11 +15,9 @@
                 <td>{{ config.course }}</td>
                 <td>{{ config.batch }}</td>
                 <td>
-                    <span class="badge"
-                        [class.failed]="config.status === 'Failed'"
-                        [class.configuring]="config.status === 'Configuring'"
-                        [class.queued]="config.status === 'Queued'"
-                        [class.completed]="config.status === 'Completed'">
+                    <span class="status-badge" [class.inactive]="config.status === 'Failed'"
+                        [class.pending]="config.status === 'Configuring'" [class.draft]="config.status === 'Queued'"
+                        [class.active]="config.status === 'Completed'">
                         {{ config.status }}
                     </span>
                 </td>
@@ -27,10 +25,10 @@
                     <button class="icon-btn" title="Edit">✎</button>
                     <button class="icon-btn" title="Delete">🗑</button>
                     <button class="icon-btn" title="View">👁</button>
-                    <button *ngIf="config.status === 'Configuring'" class="btn-manage"
-                        (click)="onManage(config)">Manage</button>
-                    <button *ngIf="config.status === 'Completed'" class="btn-manage btn-manage-orange"
-                        (click)="onView(config)">Manage</button>
+                    <button *ngIf="config.status === 'Configuring'" class="icon-btn" title="Manage"
+                        (click)="onManage(config)">⚙</button>
+                    <button *ngIf="config.status === 'Completed'" class="icon-btn icon-btn-warning" title="Manage"
+                        (click)="onView(config)">⚙</button>
                 </td>
             </tr>
         </tbody>

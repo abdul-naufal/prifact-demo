@@ -1,7 +1,13 @@
 <div class="design-container">
     <div class="top-actions">
-        <button class="btn btn-secondary" (click)="goBack()">Back</button>
-        <button class="btn btn-primary" (click)="saveQuestionPaper()">Save question paper</button>
+        <button class="btn btn-outline" (click)="goBack()">
+            <span class="material-icons">arrow_back</span>
+            Back
+        </button>
+        <button class="btn" (click)="saveQuestionPaper()">
+            <span class="material-icons">save</span>
+            Save Question Paper
+        </button>
     </div>
 
     <div class="design-content">
@@ -11,7 +17,10 @@
                     <h2>{{ questionPaperTitle }}</h2>
                     <p class="class-info">Course: {{ questionPaperCourse }} | Subject: {{ questionPaperSubject }}</p>
                 </div>
-                <div class="total-marks-display">Total Marks: {{ totalMarks }}</div>
+                <div class="total-marks-badge">
+                    <span class="marks-label">Total Marks</span>
+                    <span class="marks-value">{{ totalMarks }}</span>
+                </div>
             </div>
         </div>
 
@@ -21,52 +30,59 @@
                 <div *ngFor="let section of sections; let i = index" class="section">
                     <div class="section-header">
                         <div class="section-title-area">
-                            <span class="drag-handle">⋮⋮</span>
+                            <span class="drag-handle material-icons">drag_indicator</span>
                             <button class="collapse-btn" (click)="section.collapsed = !section.collapsed">
-                                {{ section.collapsed ? '▶' : '▼' }}
+                                <span class="material-icons">{{ section.collapsed ? 'expand_more' : 'expand_less'
+                                    }}</span>
                             </button>
                             <h3>{{ section.name }}</h3>
                         </div>
-                        <button class="delete-link" (click)="deleteSection(section.id)">Delete Section</button>
+                        <button class="delete-btn" (click)="deleteSection(section.id)">
+                            <span class="material-icons">delete</span>
+                        </button>
                     </div>
 
                     <div class="section-content" *ngIf="!section.collapsed">
                         <textarea [(ngModel)]="section.description"
                             placeholder="Enter description for this section here"
-                            class="section-description"></textarea>
+                            class="section-description form-control"></textarea>
 
                         <!-- Questions in this section -->
                         <div *ngFor="let question of section.questions; let qi = index" class="question">
                             <div class="question-header">
                                 <div class="question-title-area">
-                                    <span class="drag-handle">⋮⋮</span>
+                                    <span class="drag-handle material-icons">drag_indicator</span>
                                     <button class="collapse-btn" (click)="question.collapsed = !question.collapsed">
-                                        {{ question.collapsed ? '▶' : '▼' }}
+                                        <span class="material-icons">{{ question.collapsed ? 'expand_more' :
+                                            'expand_less' }}</span>
                                     </button>
-                                    <span class="question-label">Question: {{ qi + 1 }}</span>
-                                    <span class="marks-label">Marks: {{ question.marks }}</span>
+                                    <span class="question-label">Question {{ qi + 1 }}</span>
+                                    <span class="marks-pill">{{ question.marks }} marks</span>
                                 </div>
-                                <button class="delete-link" (click)="deleteQuestion(section.id, question.id)">Delete
-                                    Question</button>
+                                <button class="delete-btn" (click)="deleteQuestion(section.id, question.id)">
+                                    <span class="material-icons">delete</span>
+                                </button>
                             </div>
 
                             <div class="question-content" *ngIf="!question.collapsed">
                                 <input *ngIf="question.type === 'multiple-choice'" type="text"
                                     [(ngModel)]="question.text" placeholder="Form the multiple choice question here..."
-                                    class="question-input">
+                                    class="question-input form-control">
 
                                 <textarea *ngIf="question.type === 'descriptive'" [(ngModel)]="question.text"
-                                    placeholder="Enter descriptive question here..." class="question-input"></textarea>
+                                    placeholder="Enter descriptive question here..."
+                                    class="question-input form-control"></textarea>
 
                                 <input *ngIf="question.type === 'file-upload'" type="text" [(ngModel)]="question.text"
-                                    placeholder="Enter file upload question here..." class="question-input">
+                                    placeholder="Enter file upload question here..."
+                                    class="question-input form-control">
 
                                 <!-- Options for multiple choice -->
                                 <div *ngIf="question.type === 'multiple-choice' && question.options" class="options">
                                     <div *ngFor="let option of question.options; let oi = index" class="option">
                                         <label>Choice {{ oi }}</label>
                                         <input type="text" [(ngModel)]="question.options![oi]"
-                                            placeholder="Enter option">
+                                            placeholder="Enter option" class="form-control">
                                     </div>
                                 </div>
 
@@ -74,7 +90,7 @@
                                 <div class="marks-input">
                                     <label>Marks:</label>
                                     <input type="number" [(ngModel)]="question.marks"
-                                        (ngModelChange)="calculateTotalMarks()" min="1">
+                                        (ngModelChange)="calculateTotalMarks()" min="1" class="form-control">
                                 </div>
                             </div>
                         </div>
@@ -84,36 +100,46 @@
 
             <!-- Add Elements Panel -->
             <div class="add-panel">
-                <div class="add-item" draggable="true">
-                    <span class="drag-handle">⋮⋮</span>
-                    <button class="add-btn" (click)="addSection()">Section</button>
+                <h4 class="panel-title">Add Elements</h4>
+                <div class="add-item">
+                    <span class="drag-handle material-icons">drag_indicator</span>
+                    <button class="add-btn" (click)="addSection()">
+                        <span class="material-icons">add_circle</span>
+                        Section
+                    </button>
                 </div>
-                <div class="add-item" draggable="true">
-                    <span class="drag-handle">⋮⋮</span>
-                    <button class="add-btn">Static Text</button>
+                <div class="add-item">
+                    <span class="drag-handle material-icons">drag_indicator</span>
+                    <button class="add-btn">
+                        <span class="material-icons">text_fields</span>
+                        Static Text
+                    </button>
                 </div>
-                <div class="add-item" draggable="true">
-                    <span class="drag-handle">⋮⋮</span>
+                <div class="add-item">
+                    <span class="drag-handle material-icons">drag_indicator</span>
                     <button class="add-btn"
                         (click)="sections.length > 0 && addQuestion(sections[sections.length - 1].id, 'multiple-choice')"
                         [disabled]="sections.length === 0">
-                        Multiple Choice Question
+                        <span class="material-icons">radio_button_checked</span>
+                        Multiple Choice
                     </button>
                 </div>
-                <div class="add-item" draggable="true">
-                    <span class="drag-handle">⋮⋮</span>
+                <div class="add-item">
+                    <span class="drag-handle material-icons">drag_indicator</span>
                     <button class="add-btn"
                         (click)="sections.length > 0 && addQuestion(sections[sections.length - 1].id, 'descriptive')"
                         [disabled]="sections.length === 0">
-                        Descriptive Question
+                        <span class="material-icons">description</span>
+                        Descriptive
                     </button>
                 </div>
-                <div class="add-item" draggable="true">
-                    <span class="drag-handle">⋮⋮</span>
+                <div class="add-item">
+                    <span class="drag-handle material-icons">drag_indicator</span>
                     <button class="add-btn"
                         (click)="sections.length > 0 && addQuestion(sections[sections.length - 1].id, 'file-upload')"
                         [disabled]="sections.length === 0">
-                        File Upload Question
+                        <span class="material-icons">upload_file</span>
+                        File Upload
                     </button>
                 </div>
             </div>

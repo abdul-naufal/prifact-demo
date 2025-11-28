@@ -28,7 +28,7 @@ export class QuestionPaperDesignComponent implements OnInit {
   questionPaperCourse: string = '';
   questionPaperSubject: string = '';
   sections: Section[] = [];
-  totalMarks: number = 0;
+  totalMarks: number = 1;
 
   constructor(
     private route: ActivatedRoute,
