@@ -1,0 +1,125 @@
+<div class="page-container">
+    <div class="header">
+        <h2>View Schedule</h2>
+    </div>
+
+    <div class="tabs">
+        <button class="tab" [class.active]="activeTab === 'school'" (click)="setActiveTab('school')">Flight School View
+            wise</button>
+        <button class="tab" [class.active]="activeTab === 'instructor'" (click)="setActiveTab('instructor')">Instructor
+            wise</button>
+        <button class="tab" [class.active]="activeTab === 'class'" (click)="setActiveTab('class')">Batch wise</button>
+    </div>
+
+    <div class="tab-content">
+        <!-- School Wise Tab -->
+        <div *ngIf="activeTab === 'school'" class="Schedule-section school-wise-container">
+            <div class="sidebar">
+                <h3>Classes</h3>
+                <ul>
+                    <li *ngFor="let cls of classes" [class.selected]="selectedClass === cls" (click)="selectClass(cls)">
+                        {{ cls }}
+                    </li>
+                </ul>
+            </div>
+            <div class="main-content">
+                <h3>School Schedule (Selected Batch): {{ selectedClass }}</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th *ngFor="let p of periods">Period {{p}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let row of currentSchoolSchedule">
+                                <td class="row-header">{{ row.day }}</td>
+                                <td *ngFor="let cell of row.periods">
+                                    <div class="cell-content">
+                                        <span class="subject">{{ cell.subject }}</span>
+                                        <span class="instructor">{{ cell.instructor }}</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Instructor Wise Tab -->
+        <div *ngIf="activeTab === 'instructor'" class="Schedule-section school-wise-container">
+            <div class="sidebar">
+                <h3>Instructors</h3>
+                <ul>
+                    <li *ngFor="let Instructor of instructors" [class.selected]="selectedInstructor === Instructor.name"
+                        (click)="selectInstructor(Instructor.name)">
+                        <span class="Instructor-name">{{ Instructor.name }}</span>
+                        <span class="Instructor-count">{{ Instructor.count }}</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="main-content">
+                    <h3>Instructor Schedule: {{ selectedInstructor }}</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th *ngFor="let p of periods">Period {{p}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let row of currentInstructorSchedule">
+                                <td class="row-header">{{ row.day }}</td>
+                                <td *ngFor="let cell of row.periods">
+                                    <div class="cell-content">
+                                        <span class="subject">{{ cell.subject }}</span>
+                                        <span class="instructor">{{ cell.room }}</span> <!-- Using room/class here -->
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Class Wise Tab -->
+        <div *ngIf="activeTab === 'class'" class="Schedule-section">
+            <div class="class-selector">
+                <label>Select Batch: </label>
+                <select>
+                    <option>PPL Batch A</option>
+                    <option>PPL Batch B</option>
+                    <option>CPL Batch A</option>
+                </select>
+            </div>
+            <h3>Batch Schedule: {{ selectedClass }}</h3>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th *ngFor="let p of periods">Period {{p}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let row of batchSchedule">
+                            <td class="row-header">{{ row.day }}</td>
+                            <td *ngFor="let cell of row.periods">
+                                <div class="cell-content">
+                                    <span class="subject">{{ cell.subject }}</span>
+                                    <span class="instructor">{{ cell.instructor }}</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+
