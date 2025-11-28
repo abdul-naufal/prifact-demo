@@ -140,6 +140,12 @@
                 </div>
 
                 <div class="form-group">
+                    <label>Keywords</label>
+                    <input type="text" class="form-control" [(ngModel)]="newDoc.keywords"
+                        placeholder="Enter keywords (comma separated)">
+                </div>
+
+                <div class="form-group">
                     <label>Category</label>
                     <select class="form-control" [(ngModel)]="newDoc.category">
                         <option value="general">General</option>
@@ -148,12 +154,6 @@
                         <option value="manual">Manual/Handbook</option>
                         <option value="policy">Policy Document</option>
                     </select>
-                </div>
-
-                <div class="form-group">
-                    <label>Keywords</label>
-                    <input type="text" class="form-control" [(ngModel)]="newDoc.keywords"
-                        placeholder="Enter keywords (comma separated)">
                 </div>
 
                 <div class="form-group">
@@ -215,6 +215,7 @@
                     <div class="file-drop-zone">
                         <span class="material-icons">cloud_upload</span>
                         <p>Drag & drop file here or click to browse</p>
+                        <p class="supported-formats">Supported Formats: pdf, jpeg, jpg, png, docx, txt</p>
                         <input type="file" (change)="onFileSelected($event)">
                     </div>
                 </div>
