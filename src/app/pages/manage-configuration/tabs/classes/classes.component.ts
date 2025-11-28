@@ -16,12 +16,13 @@ export interface ClassSubject {
     styleUrls: ['./classes.component.css']
 })
 export class ClassesComponent {
-    classes = ['PPL Batch A', 'PPL Batch B', 'CPL Batch A', 'CPL Batch B', 'A&P Morning', 'A&P Evening', 'Simulator Morning'];
-    selectedClass: string | null = null;
+    classes = ['5-A', '5-B', '5-C', '6-A', '6-B', '6-C', '6-D'];
+    selectedClass: string | null = '5-A';
+    selectedSubject: ClassSubject | null = null;
 
-    // Mock subjects for the selected class
+    // Aviation subjects for the selected class
     subjects: ClassSubject[] = [
-        { id: 1, name: 'Aerodynamics', code: 'AERO', expanded: true, totalPeriods: 6, slots: [], teachers: ['Alexander J. Carter'] },
+        { id: 1, name: 'Aerodynamics', code: 'AERO', expanded: false, totalPeriods: 6, slots: [], teachers: ['Alexander J. Carter'] },
         { id: 2, name: 'Navigation & Flight Planning', code: 'NAV', expanded: false, totalPeriods: 7, slots: [], teachers: ['Sarah M. Lee'] },
         { id: 3, name: 'Meteorology', code: 'MET', expanded: false, totalPeriods: 6, slots: [], teachers: ['David P. Martinez'] },
         { id: 4, name: 'Flight Training (Dual/Solo)', code: 'FLIGHT', expanded: false, totalPeriods: 10, slots: [], teachers: ['James S. Fletcher'] },
@@ -31,18 +32,39 @@ export class ClassesComponent {
     days = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6'];
     periods = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
+    constructor() {
+        // Select first subject by default for demo
+        if (this.subjects.length > 0) {
+            this.selectedSubject = this.subjects[0];
+        }
+    }
+
     selectClass(cls: string) {
         this.selectedClass = cls;
         // In a real app, we would fetch subjects for this class here
+        this.selectedSubject = null; // Reset selection
     }
 
-    toggleSubject(subject: ClassSubject) {
-        subject.expanded = !subject.expanded;
+    selectSubject(subject: ClassSubject) {
+        this.selectedSubject = subject;
+    }
+
+    addClass() {
+        console.log('Add class clicked');
+    }
+
+    // Helper to check if a slot is selected (mock)
+    isSlotSelected(day: string, period: number): boolean {
+        return false; // Implement actual logic based on subject.slots
+    }
+
+    toggleSlot(day: string, period: number) {
+        console.log(`Toggle slot: ${day}, Period: ${period}`);
     }
 
     addTeacher(subject: ClassSubject) {
         // Mock functionality
-        const newTeacher = `New Teacher ${subject.teachers.length + 1}`;
+        const newTeacher = `New Instructor ${subject.teachers.length + 1}`;
         subject.teachers.push(newTeacher);
     }
 
