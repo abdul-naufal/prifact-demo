@@ -549,6 +549,8 @@
 
 .modal-body {
     margin: 10px;
+    overflow-y: auto;
+    flex: 1;
 }
 
 .btn-close {
@@ -792,4 +794,3 @@
 .mb-10 {
     margin-bottom: 10px;
 }
-
