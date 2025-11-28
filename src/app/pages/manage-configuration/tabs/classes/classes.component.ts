@@ -53,8 +53,26 @@ export class ClassesComponent {
         console.log('Add class clicked');
     }
 
-    // Track selected slots
+    // Track selected slots with cell numbers
     selectedSlots: Set<string> = new Set();
+
+    // Get cell number based on day and period
+    getCellNumber(day: string, period: number): number {
+        const dayIndex = this.days.indexOf(day);
+        const periodIndex = period - 1; // periods start from 1
+        return dayIndex * this.periods.length + periodIndex + 1;
+    }
+
+    // Get all selected cell numbers sorted
+    get allowOnValues(): string {
+        const cellNumbers: number[] = [];
+        this.selectedSlots.forEach(key => {
+            const [day, periodStr] = key.split('-');
+            const period = parseInt(periodStr);
+            cellNumbers.push(this.getCellNumber(day, period));
+        });
+        return cellNumbers.sort((a, b) => a - b).join(' ');
+    }
 
     // Helper to check if a slot is selected
     isSlotSelected(day: string, period: number): boolean {
