@@ -36,25 +36,25 @@
                                 this subject to class</p>
                         </div>
 
-                        <!-- Teachers Section -->
+                        <!-- Instructors Section -->
                         <div class="teachers-section">
                             <div class="section-header">
-                                <h5>Teachers</h5>
+                                <h5>Instructors</h5>
                                 <button class="btn btn-sm btn-success btn-add-teacher" (click)="addTeacher(subject)"
-                                    title="Add Teacher">
-                                    <i class="fas fa-plus"></i>
+                                    title="Add Instructor">
+                                    <i class="material-icons">add</i>
                                 </button>
                             </div>
                             <div class="teachers-list">
                                 <div *ngFor="let teacher of subject.teachers; let i = index" class="teacher-item">
                                     <span class="teacher-name">{{ teacher }}</span>
                                     <button class="btn-remove-teacher" (click)="removeTeacher(subject, i)"
-                                        title="Remove Teacher">
-                                        <i class="fas fa-times"></i>
+                                        title="Remove Instructor">
+                                        <i class="material-icons">close</i>
                                     </button>
                                 </div>
                                 <div *ngIf="subject.teachers.length === 0" class="no-teachers">
-                                    No teachers assigned.
+                                    No instructors assigned.
                                 </div>
                             </div>
                         </div>
