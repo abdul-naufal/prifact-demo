@@ -1,22 +1,72 @@
 <div class="app-container">
     <aside class="sidebar">
-        <div class="logo" role="img" aria-label="UpSkill Air logo">
+        <div class="logo-container">
+            <div class="radar-scan"></div>
             <img src="/assets/upskill-air-logo.svg" alt="UpSkill Air" class="site-logo" />
         </div>
+
+        <div class="nav-section-label">FLIGHT OPS</div>
+
         <nav>
             <ul>
-                <li><a routerLink="/dashboard" routerLinkActive="active">Dashboard</a></li>
-                <li><a routerLink="/generate-timetable" routerLinkActive="active">Generate Flight Timetable</a></li>
-                <li><a routerLink="/manage-syllabus" routerLinkActive="active">Training Syllabi</a></li>
-                <li><a routerLink="/question-papers" routerLinkActive="active">Exam Papers</a></li>
-                <li><a routerLink="/digital-certificates" routerLinkActive="active">Training Certificates</a></li>
+                <li>
+                    <a routerLink="/dashboard" routerLinkActive="active">
+                        <span class="material-icons">dashboard</span>
+                        <span class="nav-text">COCKPIT</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/generate-timetable" routerLinkActive="active">
+                        <span class="material-icons">flight_takeoff</span>
+                        <span class="nav-text">FLIGHT SCHEDULE</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/manage-syllabus" routerLinkActive="active">
+                        <span class="material-icons">school</span>
+                        <span class="nav-text">TRAINING SYLLABI</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/question-papers" routerLinkActive="active">
+                        <span class="material-icons">assignment</span>
+                        <span class="nav-text">EXAM PAPERS</span>
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/digital-certificates" routerLinkActive="active">
+                        <span class="material-icons">verified</span>
+                        <span class="nav-text">CERTIFICATES</span>
+                    </a>
+                </li>
             </ul>
         </nav>
+
+        <div class="sidebar-footer">
+            <div class="system-status">
+                <span class="status-dot"></span> SYSTEM ONLINE
+            </div>
+            <div class="version-id">V.2.4.1-BETA</div>
+        </div>
     </aside>
+
     <main class="main-content">
         <header class="top-bar">
-            <div class="user-profile">UpSkill Air Admin</div>
+            <div class="breadcrumbs">
+                <span class="material-icons">home</span> / OPS / DASHBOARD
+            </div>
+            <div class="top-right-controls">
+                <div class="control-item">
+                    <span class="material-icons">notifications</span>
+                    <span class="badge">3</span>
+                </div>
+                <div class="user-profile">
+                    <span class="user-rank">CPT. ADMIN</span>
+                    <span class="material-icons">account_circle</span>
+                </div>
+            </div>
         </header>
+
         <div class="content-wrapper">
             <router-outlet></router-outlet>
         </div>

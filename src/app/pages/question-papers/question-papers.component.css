@@ -1,94 +1,104 @@
 .question-papers-container {
-  padding: 20px;
-  background-color: #f5f7fa;
-  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-md);
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 20px;
+  margin-bottom: var(--spacing-md);
 }
 
 .header h2 {
-  font-size: 24px;
-  color: #333;
   margin: 0;
+  color: var(--text-primary);
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
 .create-btn {
-  background-color: #007bff;
+  background: var(--primary);
   color: white;
   border: none;
-  padding: 10px 20px;
-  border-radius: 5px;
+  padding: 10px 24px;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  text-transform: uppercase;
   cursor: pointer;
-  font-size: 14px;
+  border-radius: 4px;
+  transition: all 0.2s;
+  box-shadow: 0 2px 4px rgba(0, 122, 193, 0.3);
 }
 
 .create-btn:hover {
-  background-color: #0056b3;
+  background: #0069a6;
+  box-shadow: 0 4px 6px rgba(0, 122, 193, 0.4);
+  transform: translateY(-1px);
 }
 
 .table-container {
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  background: var(--bg-panel);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
   overflow-x: auto;
+  box-shadow: var(--shadow-card);
 }
 
+/* Table styles are inherited from global styles.css, adding specific overrides if needed */
 table {
   width: 100%;
-  border-collapse: collapse;
-}
-
-th,
-td {
-  padding: 15px;
-  text-align: left;
-  border-bottom: 1px solid #eee;
-}
-
-th {
-  background-color: #fafafa;
-  color: #666;
-  font-weight: 600;
-  font-size: 14px;
 }
 
 td {
-  color: #444;
-  font-size: 14px;
-}
-
-.status-badge {
-  padding: 4px 8px;
-  border-radius: 12px;
-  font-size: 12px;
-  font-weight: 500;
-}
-
-.status-badge.published {
-  background-color: #e6f7e9;
-  color: #28a745;
-}
-
-.status-badge.draft {
-  background-color: #fff3cd;
-  color: #856404;
+  vertical-align: middle;
 }
 
 .action-menu-btn {
-  background: none;
-  border: none;
-  color: #666;
-  cursor: pointer;
-  font-size: 20px;
-  padding: 5px 10px;
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-secondary);
+  width: 32px;
+  height: 32px;
   border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
 }
 
 .action-menu-btn:hover {
-  background-color: #f0f0f0;
+  color: var(--primary);
+  border-color: var(--primary);
+  background: var(--primary-dim);
+}
+
+input[type="checkbox"] {
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border: 1px solid var(--text-secondary);
+  border-radius: 2px;
+  background: transparent;
+  cursor: pointer;
+  position: relative;
+}
+
+input[type="checkbox"]:checked {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+
+input[type="checkbox"]:checked::after {
+  content: '✓';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
 }

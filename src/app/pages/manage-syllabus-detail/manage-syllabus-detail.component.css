@@ -106,38 +106,7 @@ h2 {
 }
 
 /* Table Styles */
-.subjects-container {
-    overflow-x: auto;
-    background: white;
-    border: 1px solid #dee2e6;
-    border-radius: 4px;
-}
-
-table {
-    width: 100%;
-    border-collapse: collapse;
-    min-width: 1000px;
-    /* Ensure table doesn't squash on small screens */
-}
-
-th,
-td {
-    padding: 12px 10px;
-    text-align: left;
-    border-bottom: 1px solid #dee2e6;
-    font-size: 14px;
-}
-
-th {
-    background-color: #f8f9fa;
-    font-weight: 600;
-    color: #495057;
-    white-space: nowrap;
-}
-
-tr:hover {
-    background-color: #f8f9fa;
-}
+/* Table styles inherited from global styles.css */
 
 .actions-cell {
     white-space: nowrap;
