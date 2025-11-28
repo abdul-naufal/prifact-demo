@@ -218,7 +218,7 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    min-width: 40px;
+    min-width: 60px;
 }
 
 .grid-cell:last-child {
@@ -249,10 +249,30 @@
     font-size: 0.85rem;
 }
 
-.check-cell input[type="checkbox"] {
-    width: 16px;
-    height: 16px;
+.clickable-cell {
     cursor: pointer;
+    transition: background-color 0.2s;
+    min-height: 40px;
+}
+
+.clickable-cell:hover {
+    background-color: #e6f0fa;
+}
+
+.clickable-cell.selected {
+    background-color: #007bff;
+    position: relative;
+}
+
+.clickable-cell.selected::after {
+    content: '✓';
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 /* Footer Checks */
@@ -392,4 +412,93 @@
 .btn-icon-small.add:hover {
     background-color: #e6f9e9;
     border-radius: 50%;
+}
+
+/* Slot Controls */
+.grid-with-controls {
+    display: flex;
+    gap: 15px;
+    align-items: center;
+}
+
+.slot-controls-sidebar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+}
+
+.slot-controls-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.btn-slot-control {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    width: 32px;
+    height: 32px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.btn-slot-control:hover {
+    background-color: #0056b3;
+}
+
+.slot-number {
+    font-weight: 600;
+    color: #333;
+    font-size: 1.1rem;
+    min-width: 30px;
+    text-align: center;
+}
+
+/* Delete Button Sidebar */
+.delete-button-sidebar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 200px;
+}
+
+.btn-delete-timetable {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    width: 40px;
+    height: 40px;
+    border-radius: 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.btn-delete-timetable:hover {
+    background-color: #c82333;
+    transform: scale(1.05);
+}
+
+.btn-delete-timetable i {
+    font-size: 20px;
+}
+
+.slot-label {
+    font-size: 0.85rem;
+    color: #666;
+    font-weight: 500;
 }

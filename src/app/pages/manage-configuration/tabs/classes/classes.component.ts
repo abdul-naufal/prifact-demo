@@ -53,13 +53,21 @@ export class ClassesComponent {
         console.log('Add class clicked');
     }
 
-    // Helper to check if a slot is selected (mock)
+    // Track selected slots
+    selectedSlots: Set<string> = new Set();
+
+    // Helper to check if a slot is selected
     isSlotSelected(day: string, period: number): boolean {
-        return false; // Implement actual logic based on subject.slots
+        return this.selectedSlots.has(`${day}-${period}`);
     }
 
     toggleSlot(day: string, period: number) {
-        console.log(`Toggle slot: ${day}, Period: ${period}`);
+        const key = `${day}-${period}`;
+        if (this.selectedSlots.has(key)) {
+            this.selectedSlots.delete(key);
+        } else {
+            this.selectedSlots.add(key);
+        }
     }
 
     addTeacher(subject: ClassSubject) {
