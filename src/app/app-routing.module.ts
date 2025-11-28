@@ -13,6 +13,7 @@ import { ClassesComponent } from './pages/manage-configuration/tabs/classes/clas
 import { QuestionPapersComponent } from './pages/question-papers/question-papers.component';
 import { QuestionPaperCreateComponent } from './pages/question-paper-create/question-paper-create.component';
 import { QuestionPaperDesignComponent } from './pages/question-paper-design/question-paper-design.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 const routes: Routes = [
   {
@@ -34,6 +35,7 @@ const routes: Routes = [
         ]
       },
       { path: 'digital-certificates', component: DigitalCertificatesComponent },
+      { path: 'dashboard', component: DashboardComponent },
       { path: 'view-timetable', component: ViewTimetableComponent },
       { path: 'question-papers', component: QuestionPapersComponent },
       { path: 'question-papers/create', component: QuestionPaperCreateComponent },

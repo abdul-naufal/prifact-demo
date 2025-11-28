@@ -7,6 +7,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { MainLayoutComponent } from './layout/main-layout/main-layout.component';
 import { GenerateTimetableComponent } from './pages/generate-timetable/generate-timetable.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { TimetableListComponent } from './components/timetable-list/timetable-list.component';
 import { ManageConfigurationComponent } from './pages/manage-configuration/manage-configuration.component';
 import { SubjectsComponent } from './pages/manage-configuration/tabs/subjects/subjects.component';
@@ -38,6 +39,7 @@ import { QuestionPaperDesignComponent } from './pages/question-paper-design/ques
     QuestionPapersComponent,
     QuestionPaperCreateComponent,
     QuestionPaperDesignComponent
+    ,DashboardComponent
   ],
   imports: [
     BrowserModule,

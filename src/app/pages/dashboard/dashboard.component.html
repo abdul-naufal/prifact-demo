@@ -1,0 +1,43 @@
+<div class="dashboard-page">
+    <div class="header">
+        <h2>Dashboard</h2>
+        <p class="subtitle">Overview of training operations</p>
+    </div>
+
+    <div class="kpi-grid">
+        <div class="kpi-card" *ngFor="let k of kpis">
+            <div class="kpi-value">{{ k.value }}</div>
+            <div class="kpi-label">{{ k.label }}</div>
+        </div>
+    </div>
+
+    <div class="content-row">
+        <div class="left-col">
+            <div class="card">
+                <h3>Upcoming Sessions</h3>
+                <ul class="session-list">
+                    <li *ngFor="let s of upcoming">
+                        <div class="session-title">{{ s.title }}</div>
+                        <div class="session-meta">{{ s.date }} &bull; {{ s.time }} &nbsp;|&nbsp; {{ s.batch }} &nbsp;|&nbsp; Instructor: {{ s.instructor }}</div>
+                        <div class="session-status">{{ s.status }}</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="right-col">
+            <div class="card">
+                <h3>Notifications</h3>
+                <ul class="notices">
+                    <li *ngFor="let n of notifications">{{ n }}</li>
+                </ul>
+            </div>
+            <div class="card small">
+                <h3>Quick Actions</h3>
+                <div class="actions">
+                    <button class="btn">Create New Flight</button>
+                    <button class="btn btn-outline">Issue Certificate</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
