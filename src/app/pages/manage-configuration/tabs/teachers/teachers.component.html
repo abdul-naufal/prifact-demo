@@ -1,0 +1,46 @@
+<div class="teachers-container">
+    <div class="actions-bar">
+        <button class="btn-primary" (click)="onCreate()" *ngIf="!isCreating">Create New Teacher</button>
+        <input type="text" placeholder="Filter" class="filter-input" *ngIf="!isCreating">
+    </div>
+
+    <div class="create-form" *ngIf="isCreating">
+        <h3>{{ isEditing ? 'Edit Teacher' : 'Add New Teacher' }}</h3>
+        <div class="form-row">
+            <input type="text" placeholder="First Name" [(ngModel)]="newTeacher.firstName">
+            <input type="text" placeholder="Middle Name" [(ngModel)]="newTeacher.middleName">
+            <input type="text" placeholder="Last Name" [(ngModel)]="newTeacher.lastName">
+            <input type="text" placeholder="Code" [(ngModel)]="newTeacher.code">
+        </div>
+        <div class="form-actions">
+            <button class="btn-save" (click)="onSave()">Save</button>
+            <button class="btn-cancel" (click)="onCancel()">Cancel</button>
+        </div>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Middle Name</th>
+                    <th>Last Name</th>
+                    <th>Code</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let teacher of teachers">
+                    <td>{{ teacher.firstName }}</td>
+                    <td>{{ teacher.middleName }}</td>
+                    <td>{{ teacher.lastName }}</td>
+                    <td>{{ teacher.code }}</td>
+                    <td class="actions-cell">
+                        <button class="icon-btn" title="Edit" (click)="onEdit(teacher)">✎</button>
+                        <button class="icon-btn" title="Delete" (click)="onDelete(teacher)">🗑</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

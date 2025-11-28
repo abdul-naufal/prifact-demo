@@ -1,0 +1,103 @@
+.table-container {
+    background: white;
+    border-radius: 4px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background-color: #f8f9fa;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+tr:hover {
+    background-color: #f5f6fa;
+}
+
+.badge {
+    padding: 4px 8px;
+    border-radius: 12px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.badge.active {
+    background-color: #e8f8f5;
+    color: #27ae60;
+}
+
+.badge.inactive {
+    background-color: #fdedec;
+    color: #c0392b;
+}
+
+.badge.configuring {
+    background-color: #fff8e1;
+    color: #f39c12;
+}
+
+.badge.queued {
+    background-color: #ebf5fb;
+    color: #3498db;
+}
+
+.badge.completed {
+    background-color: #e8f8f5;
+    color: #27ae60;
+}
+
+.actions-cell {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.1rem;
+    color: #7f8c8d;
+    transition: color 0.2s;
+}
+
+.icon-btn:hover {
+    color: #3498db;
+}
+
+.btn-manage {
+    background-color: #f39c12;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.8rem;
+    font-weight: 500;
+}
+
+.btn-manage:hover {
+    background-color: #d68910;
+}
+
+.btn-manage-orange {
+    background-color: #fd7e14;
+    border-color: #fd7e14;
+}
+
+.btn-manage-orange:hover {
+    background-color: #e96b02;
+}

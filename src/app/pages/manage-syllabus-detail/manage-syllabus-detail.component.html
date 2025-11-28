@@ -1,0 +1,68 @@
+<div class="detail-container">
+    <div class="header">
+        <div class="title-section">
+            <a routerLink="/manage-syllabus" class="back-link">← Back to Syllabus List</a>
+            <h2>Manage Syllabus</h2>
+        </div>
+        <div class="actions">
+            <button class="btn-secondary">Edit Syllabus Details</button>
+            <button class="btn-primary">Add New Subject</button>
+        </div>
+    </div>
+
+    <div class="syllabus-info">
+        <div class="info-row">
+            <label>Syllabus:</label>
+            <span>{{ syllabusTitle }}</span>
+        </div>
+        <div class="info-row">
+            <label>Description:</label>
+            <span>{{ syllabusDescription }}</span>
+        </div>
+    </div>
+
+    <div class="table-controls">
+        <input type="text" placeholder="Search..." class="search-input">
+    </div>
+
+    <div class="subjects-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Display Order</th>
+                    <th>Subject Code</th>
+                    <th>Subject Title</th>
+                    <th>Hours Per Week</th>
+                    <th>Total Hours</th>
+                    <th>Internal Assesment Mark</th>
+                    <th>Exam Hours</th>
+                    <th>Exam Mark</th>
+                    <th>Is Theory</th>
+                    <th>Subject Type</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let subject of subjects">
+                    <td>{{ subject.displayOrder }}</td>
+                    <td>{{ subject.code }}</td>
+                    <td>{{ subject.title }}</td>
+                    <td>{{ subject.hoursPerWeek }}</td>
+                    <td>{{ subject.totalHours }}</td>
+                    <td>{{ subject.internalAssessmentMark }}</td>
+                    <td>{{ subject.examHours }}</td>
+                    <td>{{ subject.examMark }}</td>
+                    <td>{{ subject.isTheory }}</td>
+                    <td>{{ subject.subjectType }}</td>
+                    <td class="actions-cell">
+                        <a href="javascript:void(0)" class="action-link">Manage</a>
+                        <span class="separator">|</span>
+                        <a href="javascript:void(0)" class="action-link">Edit</a>
+                        <span class="separator">|</span>
+                        <a href="javascript:void(0)" class="action-link delete-link">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

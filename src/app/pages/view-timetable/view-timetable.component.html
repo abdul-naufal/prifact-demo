@@ -1,0 +1,123 @@
+<div class="page-container">
+    <div class="header">
+        <h2>View Timetable</h2>
+    </div>
+
+    <div class="tabs">
+        <button class="tab" [class.active]="activeTab === 'school'" (click)="setActiveTab('school')">School
+            wise</button>
+        <button class="tab" [class.active]="activeTab === 'teacher'" (click)="setActiveTab('teacher')">Teacher
+            wise</button>
+        <button class="tab" [class.active]="activeTab === 'class'" (click)="setActiveTab('class')">Class wise</button>
+    </div>
+
+    <div class="tab-content">
+        <!-- School Wise Tab -->
+        <div *ngIf="activeTab === 'school'" class="timetable-section school-wise-container">
+            <div class="sidebar">
+                <h3>Classes</h3>
+                <ul>
+                    <li *ngFor="let cls of classes" [class.selected]="selectedClass === cls" (click)="selectClass(cls)">
+                        {{ cls }}
+                    </li>
+                </ul>
+            </div>
+            <div class="main-content">
+                <h3>School Timetable: {{ selectedClass }}</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th *ngFor="let p of periods">Period {{p}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let row of currentSchoolTimetable">
+                                <td class="row-header">{{ row.day }}</td>
+                                <td *ngFor="let cell of row.periods">
+                                    <div class="cell-content">
+                                        <span class="subject">{{ cell.subject }}</span>
+                                        <span class="teacher">{{ cell.teacher }}</span>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Teacher Wise Tab -->
+        <div *ngIf="activeTab === 'teacher'" class="timetable-section school-wise-container">
+            <div class="sidebar">
+                <h3>Teachers</h3>
+                <ul>
+                    <li *ngFor="let teacher of teachers" [class.selected]="selectedTeacher === teacher.name"
+                        (click)="selectTeacher(teacher.name)">
+                        <span class="teacher-name">{{ teacher.name }}</span>
+                        <span class="teacher-count">{{ teacher.count }}</span>
+                    </li>
+                </ul>
+            </div>
+            <div class="main-content">
+                <h3>Teacher Timetable: {{ selectedTeacher }}</h3>
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Day</th>
+                                <th *ngFor="let p of periods">Period {{p}}</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr *ngFor="let row of currentTeacherTimetable">
+                                <td class="row-header">{{ row.day }}</td>
+                                <td *ngFor="let cell of row.periods">
+                                    <div class="cell-content">
+                                        <span class="subject">{{ cell.subject }}</span>
+                                        <span class="teacher">{{ cell.room }}</span> <!-- Using room/class here -->
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Class Wise Tab -->
+        <div *ngIf="activeTab === 'class'" class="timetable-section">
+            <div class="class-selector">
+                <label>Select Class: </label>
+                <select>
+                    <option>5-A</option>
+                    <option>5-B</option>
+                    <option>6-A</option>
+                </select>
+            </div>
+            <h3>Class Timetable: 5-A</h3>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Day</th>
+                            <th *ngFor="let p of periods">Period {{p}}</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let row of classTimetable">
+                            <td class="row-header">{{ row.day }}</td>
+                            <td *ngFor="let cell of row.periods">
+                                <div class="cell-content">
+                                    <span class="subject">{{ cell.subject }}</span>
+                                    <span class="teacher">{{ cell.teacher }}</span>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>

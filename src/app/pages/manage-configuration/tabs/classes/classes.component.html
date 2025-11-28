@@ -1,0 +1,115 @@
+<div class="classes-container">
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <h3>Classes</h3>
+            <button class="btn-add">+</button>
+        </div>
+        <ul class="class-list">
+            <li *ngFor="let cls of classes" [class.active]="selectedClass === cls" (click)="selectClass(cls)">
+                {{ cls }}
+            </li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div *ngIf="selectedClass; else noSelection">
+            <div class="header-section">
+                <h2>{{ selectedClass }} - Subjects</h2>
+            </div>
+
+            <div class="subjects-list">
+                <div *ngFor="let subject of subjects" class="subject-card">
+                    <div class="subject-header" (click)="toggleSubject(subject)">
+                        <div class="subject-info">
+                            <span class="subject-name">{{ subject.name }}</span>
+                            <span class="subject-code">({{ subject.code }})</span>
+                        </div>
+                        <div class="expand-icon">
+                            <i class="fas" [class.fa-chevron-down]="!subject.expanded"
+                                [class.fa-chevron-up]="subject.expanded"></i>
+                        </div>
+                    </div>
+
+                    <div class="subject-details" *ngIf="subject.expanded">
+                        <div class="details-header">
+                            <h4>Slots and Constraints</h4>
+                            <p class="text-muted">Add slots and specify constraints (if any) for the scheduling
+                                this subject to class</p>
+                        </div>
+
+                        <!-- Teachers Section -->
+                        <div class="teachers-section">
+                            <div class="section-header">
+                                <h5>Teachers</h5>
+                                <button class="btn btn-sm btn-success btn-add-teacher" (click)="addTeacher(subject)"
+                                    title="Add Teacher">
+                                    <i class="fas fa-plus"></i>
+                                </button>
+                            </div>
+                            <div class="teachers-list">
+                                <div *ngFor="let teacher of subject.teachers; let i = index" class="teacher-item">
+                                    <span class="teacher-name">{{ teacher }}</span>
+                                    <button class="btn-remove-teacher" (click)="removeTeacher(subject, i)"
+                                        title="Remove Teacher">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                                <div *ngIf="subject.teachers.length === 0" class="no-teachers">
+                                    No teachers assigned.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="controls-row">
+                            <div class="section-title">Slot</div>
+                            <div class="section-title">Constraints</div>
+                            <div class="actions">
+                                <button class="btn btn-sm btn-outline-primary" title="Remove Slot"><i
+                                        class="fas fa-minus"></i></button>
+                                <button class="btn btn-sm btn-outline-primary" title="Add Slot"><i
+                                        class="fas fa-plus"></i></button>
+                            </div>
+                        </div>
+
+                        <div class="slots-grid">
+                            <!-- Header Row -->
+                            <div class="grid-header-row">
+                                <div class="grid-cell empty"></div>
+                                <div *ngFor="let p of periods" class="grid-cell header">{{ p }}</div>
+                            </div>
+
+                            <!-- Day Rows -->
+                            <div *ngFor="let day of days" class="grid-row">
+                                <div class="grid-cell day-label">
+                                    {{ day }}
+                                    <a href="javascript:void(0)" class="check-all" title="Check All">
+                                        <i class="far fa-square"></i>
+                                    </a>
+                                </div>
+                                <div *ngFor="let p of periods" class="grid-cell period-check">
+                                    <a href="javascript:void(0)" class="check-slot">
+                                        <i class="far fa-square"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="footer-row">
+                            <div class="total-periods">
+                                <strong>Total Periods: {{ subject.totalPeriods }}</strong>
+                            </div>
+                            <div class="footer-actions">
+                                <button class="btn btn-primary btn-sm">Save <i class="fas fa-save"></i></button>
+                                <button class="btn btn-secondary btn-sm">Cancel <i class="fas fa-times"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <ng-template #noSelection>
+            <div class="empty-state">
+                <p>Please select a class from the sidebar to view subjects.</p>
+            </div>
+        </ng-template>
+    </div>
+</div>

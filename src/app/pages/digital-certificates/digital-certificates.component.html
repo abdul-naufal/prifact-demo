@@ -1,0 +1,78 @@
+<div class="page-container">
+    <div class="header">
+        <h2>Approved TC Requests - Ready To Download</h2>
+    </div>
+
+    <div class="tabs">
+        <button class="tab">Pending Requests</button>
+        <button class="tab">Ready To Approve</button>
+        <button class="tab active">Approved Requests</button>
+        <button class="tab">Rejected Requests</button>
+    </div>
+
+    <div class="controls-section">
+        <div class="filters">
+            <div class="filter-group">
+                <label>Filter by Course:</label>
+                <select>
+                    <option>--Select--</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label>Filter by Student Group:</label>
+                <select>
+                    <option>--Select--</option>
+                </select>
+            </div>
+            <button class="btn-apply">Apply</button>
+        </div>
+    </div>
+
+    <div class="table-controls">
+        <div class="entries-control">
+            Show
+            <select>
+                <option>10</option>
+                <option>25</option>
+                <option>50</option>
+            </select>
+            entries
+        </div>
+        <div class="search-control">
+            Search: <input type="text">
+        </div>
+    </div>
+
+    <div class="table-container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Roll No.</th>
+                    <th>TC No.</th>
+                    <th>Student Name</th>
+                    <th>Class & Division</th>
+                    <th>TC Requested On</th>
+                    <th>Reason</th>
+                    <th>Date Of Leaving</th>
+                    <th>Approved On</th>
+                    <th>Approved By</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let req of requests">
+                    <td>{{ req.rollNo }}</td>
+                    <td>{{ req.tcNo }}</td>
+                    <td>{{ req.studentName }}</td>
+                    <td>{{ req.classDivision }}</td>
+                    <td>{{ req.requestedOn }}</td>
+                    <td>{{ req.reason }}</td>
+                    <td>{{ req.dateOfLeaving }}</td>
+                    <td>{{ req.approvedOn }}</td>
+                    <td>{{ req.approvedBy }}</td>
+                    <td><a href="javascript:void(0)" class="download-link">Download</a></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
