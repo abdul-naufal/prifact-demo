@@ -158,14 +158,15 @@
 
                 <div class="form-group">
                     <label>Filters</label>
-                    <div class="filters-container">
+                    <div class="filters-container mb-10">
                         <!-- Selected Filters Badges -->
                         <div class="filter-badge" *ngFor="let filter of newDoc.filters; let i = index">
                             <span class="filter-category">{{ filter.category }}:</span>
                             <span class="filter-value">{{ filter.value }}</span>
                             <span class="remove-filter" (click)="removeFilter(i)">×</span>
                         </div>
-
+                    </div>
+                    <div class="filters-container">
                         <!-- Add Filter Button & Dropdown -->
                         <div class="add-filter-wrapper">
                             <button class="btn-add-filter" (click)="toggleFilterDropdown()">
