@@ -22,61 +22,61 @@ interface SyllabusSubject {
 })
 export class ManageSyllabusDetailComponent implements OnInit {
   syllabusId: number | null = null;
-  syllabusTitle: string = '10th Class CBSE';
-  syllabusDescription: string = '10th Class CBSE Syllabus';
+  syllabusTitle: string = 'PPL - Private Pilot License';
+  syllabusDescription: string = 'Private pilot licensing syllabus covering flight, theory, and navigation modules';
 
   subjects: SyllabusSubject[] = [
     {
       id: 1,
       displayOrder: 1,
-      code: 'ENG1',
-      title: 'English Communicative',
-      hoursPerWeek: 20,
-      totalHours: 120,
-      internalAssessmentMark: 50,
+      code: 'AERO101',
+      title: 'Aerodynamics Fundamentals',
+      hoursPerWeek: 8,
+      totalHours: 48,
+      internalAssessmentMark: 20,
       examHours: 3,
       examMark: 100,
-      isTheory: '-',
-      subjectType: '-'
+      isTheory: 'Theory',
+      subjectType: 'Core'
     },
     {
       id: 2,
-      displayOrder: 1,
-      code: 'ENG2',
-      title: 'English Language and Literature',
-      hoursPerWeek: 20,
-      totalHours: 120,
-      internalAssessmentMark: 50,
+      displayOrder: 2,
+      code: 'NAV202',
+      title: 'Navigation & Flight Planning',
+      hoursPerWeek: 6,
+      totalHours: 36,
+      internalAssessmentMark: 20,
       examHours: 3,
       examMark: 100,
-      isTheory: '-',
-      subjectType: '-'
+      isTheory: 'Theory',
+      subjectType: 'Core'
     },
     {
       id: 3,
-      displayOrder: 1,
-      code: 'HINDI1',
-      title: 'Hindi Course-A',
-      hoursPerWeek: 20,
-      totalHours: 120,
-      internalAssessmentMark: 50,
+      displayOrder: 3,
+      code: 'MET104',
+      title: 'Aviation Meteorology',
+      hoursPerWeek: 4,
+      totalHours: 24,
+      internalAssessmentMark: 20,
       examHours: 3,
       examMark: 100,
-      isTheory: '-',
-      subjectType: '-'
+      isTheory: 'Theory',
+      subjectType: 'Core'
     },
     {
       id: 4,
-      displayOrder: 1,
-      code: 'Hindi2',
-      title: 'Hindi Course-B',
-      hoursPerWeek: 20,
-      totalHours: 120,
+      displayOrder: 4,
+      code: 'PRAC301',
+      title: 'Flight Training - Dual & Solo',
+      hoursPerWeek: 12,
+      totalHours: 72,
       internalAssessmentMark: 50,
-      examHours: 3,
-      examMark: 100,
-      isTheory: '-',
-      subjectType: '-'
+      examHours: 0,
+      examMark: 0,
+      isTheory: 'Practical',
+      subjectType: 'Practical'
     }
   ];
 

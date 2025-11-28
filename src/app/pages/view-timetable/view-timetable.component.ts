@@ -32,8 +32,8 @@ export class ViewTimetableComponent {
   periods = ['1', '2', '3', '4', '5', '6', '7', '8'];
 
   // School Wise Data
-  classes = ['5-A', '5-B', '6-A', '6-B', '7-A'];
-  selectedClass: string = '5-A';
+  classes = ['PPL Batch A', 'PPL Batch B', 'CPL Batch A', 'A&P Morning'];
+  selectedClass: string = 'PPL Batch A';
 
   // Mock Data for School Wise Timetable (now filtered by class)
   // I'll keep the same structure but we will display only the selected class's row or maybe the whole week for that class?
@@ -51,28 +51,28 @@ export class ViewTimetableComponent {
   get currentSchoolTimetable(): ClassTimetableRow[] {
     // Return mock data based on selected class
     // For demo, we'll just return the same mock data but maybe randomized or just static
-    return this.classTimetable;
+    return this.batchTimetable;
   }
 
   // Teacher Wise Data
   teachers = [
-    { name: 'John Doe (JD)', count: 24 },
-    { name: 'Jane Smith (JS)', count: 22 },
-    { name: 'Mike King (MK)', count: 20 },
-    { name: 'Alice Lee (AL)', count: 18 },
-    { name: 'Robert Tate (RT)', count: 16 }
+    { name: 'Alexander J. Carter', count: 24 },
+    { name: 'Sarah M. Lee', count: 22 },
+    { name: 'David P. Martinez', count: 20 },
+    { name: 'Rebecca K. Ng', count: 18 },
+    { name: 'James S. Fletcher', count: 16 }
   ];
-  selectedTeacher: string = 'John Doe (JD)';
+  selectedTeacher: string = 'Alexander J. Carter';
 
   // Mock Data for Teacher Wise Timetable (Weekly view for selected teacher)
   // We'll reuse the ClassTimetableRow structure since it's Day vs Periods
   teacherWeeklyTimetable: ClassTimetableRow[] = [
-    { day: 'Monday', periods: [{ subject: 'Math', room: '5-A' }, { subject: 'Math', room: '5-B' }, { subject: '-', room: '-' }, { subject: 'Math', room: '6-A' }, { subject: 'Math', room: '6-B' }, { subject: '-', room: '-' }, { subject: '-', room: '-' }, { subject: '-', room: '-' }] },
-    { day: 'Tuesday', periods: [{ subject: 'Math', room: '6-A' }, { subject: 'Math', room: '6-B' }, { subject: 'Math', room: '5-A' }, { subject: 'Math', room: '5-B' }, { subject: '-', room: '-' }, { subject: '-', room: '-' }, { subject: '-', room: '-' }, { subject: '-', room: '-' }] },
-    { day: 'Wednesday', periods: [{ subject: '-', room: '-' }, { subject: '-', room: '-' }, { subject: 'Math', room: '7-A' }, { subject: 'Math', room: '7-B' }, { subject: 'Math', room: '5-A' }, { subject: 'Math', room: '5-B' }, { subject: '-', room: '-' }, { subject: '-', room: '-' }] },
-    { day: 'Thursday', periods: [{ subject: 'Math', room: '5-B' }, { subject: 'Math', room: '5-A' }, { subject: '-', room: '-' }, { subject: '-', room: '-' }, { subject: 'Math', room: '7-A' }, { subject: 'Math', room: '7-B' }, { subject: '-', room: '-' }, { subject: '-', room: '-' }] },
-    { day: 'Friday', periods: [{ subject: 'Math', room: '7-A' }, { subject: 'Math', room: '7-B' }, { subject: 'Math', room: '6-A' }, { subject: 'Math', room: '6-B' }, { subject: '-', room: '-' }, { subject: '-', room: '-' }, { subject: '-', room: '-' }, { subject: '-', room: '-' }] },
-    { day: 'Saturday', periods: [{ subject: '-', room: '-' }, { subject: '-', room: '-' }, { subject: '-', room: '-' }, { subject: '-', room: '-' }, { subject: 'Math', room: '5-A' }, { subject: 'Math', room: '5-B' }, { subject: 'Math', room: '6-A' }, { subject: 'Math', room: '6-B' }] }
+    { day: 'Monday', periods: [{ subject: 'Flight Training', room: 'PPL Batch A' }, { subject: 'Navigation', room: 'PPL Batch B' }, { subject: '-', room: '-' }, { subject: 'Aerodynamics', room: 'CPL Batch A' }, { subject: 'Meteorology', room: 'A&P Morning' }, { subject: '-', room: '-' }, { subject: '-', room: '-' }, { subject: '-', room: '-' }] },
+    { day: 'Tuesday', periods: [{ subject: 'Navigation', room: 'CPL Batch A' }, { subject: 'Avionics', room: 'A&P Morning' }, { subject: 'Flight Training', room: 'PPL Batch A' }, { subject: 'Flight Training', room: 'PPL Batch B' }, { subject: '-', room: '-' }, { subject: '-', room: '-' }, { subject: '-', room: '-' }, { subject: '-', room: '-' }] },
+    { day: 'Wednesday', periods: [{ subject: '-', room: '-' }, { subject: '-', room: '-' }, { subject: 'Aerodynamics', room: 'PPL Batch A' }, { subject: 'Aerodynamics', room: 'PPL Batch B' }, { subject: 'Flight Training', room: 'CPL Batch A' }, { subject: 'Flight Training', room: 'A&P Morning' }, { subject: '-', room: '-' }, { subject: '-', room: '-' }] },
+    { day: 'Thursday', periods: [{ subject: 'Flight Training', room: 'PPL Batch B' }, { subject: 'Flight Training', room: 'PPL Batch A' }, { subject: '-', room: '-' }, { subject: '-', room: '-' }, { subject: 'Avionics', room: 'CPL Batch A' }, { subject: 'Avionics', room: 'A&P Morning' }, { subject: '-', room: '-' }, { subject: '-', room: '-' }] },
+    { day: 'Friday', periods: [{ subject: 'Flight Training', room: 'CPL Batch A' }, { subject: 'Flight Training', room: 'CPL Batch A' }, { subject: 'Navigation', room: 'A&P Morning' }, { subject: 'Navigation', room: 'PPL Batch B' }, { subject: '-', room: '-' }, { subject: '-', room: '-' }, { subject: '-', room: '-' }, { subject: '-', room: '-' }] },
+    { day: 'Saturday', periods: [{ subject: '-', room: '-' }, { subject: '-', room: '-' }, { subject: '-', room: '-' }, { subject: '-', room: '-' }, { subject: 'Flight Training', room: 'PPL Batch A' }, { subject: 'Flight Training', room: 'PPL Batch B' }, { subject: 'Navigation', room: 'CPL Batch A' }, { subject: 'Avionics', room: 'A&P Morning' }] }
   ];
 
   get currentTeacherTimetable(): ClassTimetableRow[] {
@@ -80,13 +80,13 @@ export class ViewTimetableComponent {
   }
 
   // Mock Data for Class Wise Timetable (e.g., for 5-A)
-  classTimetable: ClassTimetableRow[] = [
-    { day: 'Monday', periods: [{ subject: 'Math', teacher: 'JD' }, { subject: 'Eng', teacher: 'JS' }, { subject: 'Sci', teacher: 'MK' }, { subject: 'Hist', teacher: 'AL' }, { subject: 'Geo', teacher: 'RT' }, { subject: 'Art', teacher: 'CW' }, { subject: 'PE', teacher: 'PT' }, { subject: 'Lib', teacher: 'LB' }] },
-    { day: 'Tuesday', periods: [{ subject: 'Eng', teacher: 'JS' }, { subject: 'Math', teacher: 'JD' }, { subject: 'Hist', teacher: 'AL' }, { subject: 'Sci', teacher: 'MK' }, { subject: 'Art', teacher: 'CW' }, { subject: 'Geo', teacher: 'RT' }, { subject: 'Lib', teacher: 'LB' }, { subject: 'PE', teacher: 'PT' }] },
-    { day: 'Wednesday', periods: [{ subject: 'Sci', teacher: 'MK' }, { subject: 'Hist', teacher: 'AL' }, { subject: 'Math', teacher: 'JD' }, { subject: 'Eng', teacher: 'JS' }, { subject: 'PE', teacher: 'PT' }, { subject: 'Lib', teacher: 'LB' }, { subject: 'Art', teacher: 'CW' }, { subject: 'Geo', teacher: 'RT' }] },
-    { day: 'Thursday', periods: [{ subject: 'Hist', teacher: 'AL' }, { subject: 'Sci', teacher: 'MK' }, { subject: 'Eng', teacher: 'JS' }, { subject: 'Math', teacher: 'JD' }, { subject: 'Lib', teacher: 'LB' }, { subject: 'PE', teacher: 'PT' }, { subject: 'Geo', teacher: 'RT' }, { subject: 'Art', teacher: 'CW' }] },
-    { day: 'Friday', periods: [{ subject: 'Math', teacher: 'JD' }, { subject: 'Eng', teacher: 'JS' }, { subject: 'Sci', teacher: 'MK' }, { subject: 'Hist', teacher: 'AL' }, { subject: 'Geo', teacher: 'RT' }, { subject: 'Art', teacher: 'CW' }, { subject: 'PE', teacher: 'PT' }, { subject: 'Lib', teacher: 'LB' }] },
-    { day: 'Saturday', periods: [{ subject: 'Eng', teacher: 'JS' }, { subject: 'Math', teacher: 'JD' }, { subject: 'Hist', teacher: 'AL' }, { subject: 'Sci', teacher: 'MK' }, { subject: 'Art', teacher: 'CW' }, { subject: 'Geo', teacher: 'RT' }, { subject: 'Lib', teacher: 'LB' }, { subject: 'PE', teacher: 'PT' }] }
+  batchTimetable: ClassTimetableRow[] = [
+    { day: 'Monday', periods: [{ subject: 'Flight Training', teacher: 'A. Carter' }, { subject: 'Navigation', teacher: 'S. Lee' }, { subject: 'Aerodynamics', teacher: 'D. Martinez' }, { subject: 'Avionics', teacher: 'R. Ng' }, { subject: 'Systems', teacher: 'J. Fletcher' }, { subject: '-', teacher: '-' }, { subject: '-', teacher: '-' }, { subject: '-', teacher: '-' }] },
+    { day: 'Tuesday', periods: [{ subject: 'Navigation', teacher: 'S. Lee' }, { subject: 'Flight Training', teacher: 'A. Carter' }, { subject: 'Avionics', teacher: 'R. Ng' }, { subject: 'Systems', teacher: 'J. Fletcher' }, { subject: 'Aerodynamics', teacher: 'D. Martinez' }, { subject: '-', teacher: '-' }, { subject: '-', teacher: '-' }, { subject: '-', teacher: '-' }] },
+    { day: 'Wednesday', periods: [{ subject: 'Aerodynamics', teacher: 'D. Martinez' }, { subject: 'Avionics', teacher: 'R. Ng' }, { subject: 'Flight Training', teacher: 'A. Carter' }, { subject: 'Navigation', teacher: 'S. Lee' }, { subject: 'Systems', teacher: 'J. Fletcher' }, { subject: '-', teacher: '-' }, { subject: '-', teacher: '-' }, { subject: '-', teacher: '-' }] },
+    { day: 'Thursday', periods: [{ subject: 'Flight Training', teacher: 'A. Carter' }, { subject: 'Systems', teacher: 'J. Fletcher' }, { subject: 'Avionics', teacher: 'R. Ng' }, { subject: 'Aerodynamics', teacher: 'D. Martinez' }, { subject: '-', teacher: '-' }, { subject: '-', teacher: '-' }, { subject: '-', teacher: '-' }, { subject: '-', teacher: '-' }] },
+    { day: 'Friday', periods: [{ subject: 'Flight Training', teacher: 'A. Carter' }, { subject: 'Navigation', teacher: 'S. Lee' }, { subject: 'Aerodynamics', teacher: 'D. Martinez' }, { subject: 'Avionics', teacher: 'R. Ng' }, { subject: '-', teacher: '-' }, { subject: '-', teacher: '-' }, { subject: '-', teacher: '-' }, { subject: '-', teacher: '-' }] },
+    { day: 'Saturday', periods: [{ subject: 'Flight Training', teacher: 'A. Carter' }, { subject: 'Simulation', teacher: 'J. Fletcher' }, { subject: 'Navigation', teacher: 'S. Lee' }, { subject: 'Maintenance', teacher: 'D. Martinez' }, { subject: '-', teacher: '-' }, { subject: '-', teacher: '-' }, { subject: '-', teacher: '-' }, { subject: '-', teacher: '-' }] }
   ];
 
   setActiveTab(tab: 'school' | 'teacher' | 'class') {

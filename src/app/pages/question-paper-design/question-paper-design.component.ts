@@ -25,7 +25,7 @@ interface Section {
 })
 export class QuestionPaperDesignComponent implements OnInit {
   questionPaperTitle: string = '';
-  questionPaperClass: string = '';
+  questionPaperCourse: string = '';
   questionPaperSubject: string = '';
   sections: Section[] = [];
   totalMarks: number = 0;
@@ -41,7 +41,7 @@ export class QuestionPaperDesignComponent implements OnInit {
     if (storedData) {
       const data = JSON.parse(storedData);
       this.questionPaperTitle = data.title || '';
-      this.questionPaperClass = data.class || '';
+      this.questionPaperCourse = data.course || '';
       this.questionPaperSubject = data.subject || '';
     }
 
@@ -101,7 +101,7 @@ export class QuestionPaperDesignComponent implements OnInit {
   saveQuestionPaper() {
     console.log('Saving question paper:', {
       title: this.questionPaperTitle,
-      class: this.questionPaperClass,
+      course: this.questionPaperCourse,
       sections: this.sections,
       totalMarks: this.totalMarks
     });

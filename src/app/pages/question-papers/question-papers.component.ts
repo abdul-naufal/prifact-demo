@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 interface QuestionPaper {
   title: string;
-  class: string;
+  course: string; // course name or training level
   subject: string;
   totalMarks: number;
   createdBy: string;
@@ -18,30 +18,30 @@ interface QuestionPaper {
 export class QuestionPapersComponent {
   questionPapers: QuestionPaper[] = [
     {
-      title: 'Mid Term Exam 2023',
-      class: '10',
-      subject: 'Mathematics',
+      title: 'PPL Written Exam - Air Law & Regulations',
+      course: 'PPL (Private Pilot License)',
+      subject: 'Air Law & Regulations',
       totalMarks: 100,
-      createdBy: 'TestTeacher',
-      lastUpdated: new Date('2023-10-15'),
+      createdBy: 'alex.carter@upskillair.edu',
+      lastUpdated: new Date('2024-05-01'),
       status: 'Published'
     },
     {
-      title: 'Unit Test 1',
-      class: '9',
-      subject: 'Science',
-      totalMarks: 50,
-      createdBy: 'TestTeacher',
-      lastUpdated: new Date('2023-09-20'),
+      title: 'Avionics Systems Assessment',
+      course: 'Aircraft Systems - Avionics Module',
+      subject: 'Avionics & Electrical Systems',
+      totalMarks: 70,
+      createdBy: 'rebecca.ng@upskillair.edu',
+      lastUpdated: new Date('2024-06-10'),
       status: 'Draft'
     },
     {
-      title: 'Final Exam Prep',
-      class: '12',
-      subject: 'Physics',
-      totalMarks: 70,
-      createdBy: 'Admin',
-      lastUpdated: new Date('2023-11-01'),
+      title: 'Aircraft Maintenance - Structural Inspection',
+      course: 'A&P - Airframe & Powerplant',
+      subject: 'Airframe & Structures',
+      totalMarks: 80,
+      createdBy: 'david.martinez@upskillair.edu',
+      lastUpdated: new Date('2024-03-18'),
       status: 'Published'
     }
   ];

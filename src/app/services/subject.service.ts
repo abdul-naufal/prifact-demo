@@ -30,18 +30,20 @@ export class SubjectService {
   private initializeData() {
     if (!localStorage.getItem(this.groupsKey)) {
       const defaultGroups: OptionalGroup[] = [
-        { id: 1, displayName: 'Science Electives', description: 'Physics, Chemistry, Biology', code: 'SCI-ELEC' },
-        { id: 2, displayName: 'Languages', description: 'French, Spanish, German', code: 'LANG' }
+        { id: 1, displayName: 'Flight Operations', description: 'Flight training - Pilot courses and operations', code: 'FLTOP' },
+        { id: 2, displayName: 'Aircraft Systems', description: 'Avionics, Airframe, Propulsion', code: 'ACSYS' }
       ];
       localStorage.setItem(this.groupsKey, JSON.stringify(defaultGroups));
     }
 
     if (!localStorage.getItem(this.subjectsKey)) {
       const defaultSubjects: Subject[] = [
-        { id: 1, displayName: 'Physics', description: 'Introductory Physics', code: 'PHY', groupId: 1 },
-        { id: 2, displayName: 'Chemistry', description: 'Organic Chemistry', code: 'CHEM', groupId: 1 },
-        { id: 3, displayName: 'English', description: 'Literature and Grammar', code: 'ENG' },
-        { id: 4, displayName: 'French', description: 'Basic French', code: 'FRE', groupId: 2 }
+        { id: 1, displayName: 'Aerodynamics', description: 'Principles of flight and airfoil theory', code: 'AERO', groupId: 1 },
+        { id: 2, displayName: 'Meteorology', description: 'Weather systems and aviation weather', code: 'MET', groupId: 1 },
+        { id: 3, displayName: 'Navigation & Flight Planning', description: 'Navigation techniques & planning', code: 'NAV', groupId: 1 },
+        { id: 4, displayName: 'Avionics & Electrical Systems', description: 'Aircraft avionics systems', code: 'AVION', groupId: 2 },
+        { id: 5, displayName: 'Airframe & Structures', description: 'Aircraft structure and maintenance', code: 'AFS', groupId: 2 },
+        { id: 6, displayName: 'Air Law & Regulations', description: 'Aviation law, procedures and compliance', code: 'LAW' }
       ];
       localStorage.setItem(this.subjectsKey, JSON.stringify(defaultSubjects));
     }

@@ -22,11 +22,11 @@ export class TeacherService {
   private initializeData() {
     if (!localStorage.getItem(this.storageKey)) {
       const defaultTeachers: Teacher[] = [
-        { id: 1, firstName: 'John', middleName: 'A.', lastName: 'Doe', code: 'john.doe@school.com' },
-        { id: 2, firstName: 'Jane', middleName: 'B.', lastName: 'Smith', code: 'jane.smith@school.com' },
-        { id: 3, firstName: 'Robert', middleName: 'C.', lastName: 'Johnson', code: 'robert.j@school.com' },
-        { id: 4, firstName: 'Emily', middleName: 'D.', lastName: 'Davis', code: 'emily.d@school.com' },
-        { id: 5, firstName: 'Michael', middleName: 'E.', lastName: 'Wilson', code: 'michael.w@school.com' }
+        { id: 1, firstName: 'Alexander', middleName: 'J.', lastName: 'Carter', code: 'alex.carter@upskillair.edu' },
+        { id: 2, firstName: 'Sarah', middleName: 'M.', lastName: 'Lee', code: 'sarah.lee@upskillair.edu' },
+        { id: 3, firstName: 'David', middleName: 'P.', lastName: 'Martinez', code: 'david.martinez@upskillair.edu' },
+        { id: 4, firstName: 'Rebecca', middleName: 'K.', lastName: 'Ng', code: 'rebecca.ng@upskillair.edu' },
+        { id: 5, firstName: 'James', middleName: 'S.', lastName: 'Fletcher', code: 'james.fletcher@upskillair.edu' }
       ];
       localStorage.setItem(this.storageKey, JSON.stringify(defaultTeachers));
     }

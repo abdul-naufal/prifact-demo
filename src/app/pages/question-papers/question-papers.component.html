@@ -9,7 +9,7 @@
       <thead>
         <tr>
           <th>Title</th>
-          <th>Class & Subject</th>
+          <th>Course & Subject</th>
           <th>Total Marks</th>
           <th>Created by</th>
           <th>Last Updated</th>
@@ -21,7 +21,7 @@
       <tbody>
         <tr *ngFor="let paper of questionPapers">
           <td>{{ paper.title }}</td>
-          <td>{{ paper.class }} - {{ paper.subject }}</td>
+          <td>{{ paper.course }} - {{ paper.subject }}</td>
           <td>{{ paper.totalMarks }}</td>
           <td>{{ paper.createdBy }}</td>
           <td>{{ paper.lastUpdated | date:'mediumDate' }}</td>

@@ -4,11 +4,11 @@
     </div>
 
     <div class="tabs">
-        <button class="tab" [class.active]="activeTab === 'school'" (click)="setActiveTab('school')">School
+        <button class="tab" [class.active]="activeTab === 'school'" (click)="setActiveTab('school')">Flight School View
             wise</button>
         <button class="tab" [class.active]="activeTab === 'teacher'" (click)="setActiveTab('teacher')">Teacher
             wise</button>
-        <button class="tab" [class.active]="activeTab === 'class'" (click)="setActiveTab('class')">Class wise</button>
+        <button class="tab" [class.active]="activeTab === 'class'" (click)="setActiveTab('class')">Batch wise</button>
     </div>
 
     <div class="tab-content">
@@ -23,7 +23,7 @@
                 </ul>
             </div>
             <div class="main-content">
-                <h3>School Timetable: {{ selectedClass }}</h3>
+                <h3>School Timetable (Selected Batch): {{ selectedClass }}</h3>
                 <div class="table-responsive">
                     <table>
                         <thead>
@@ -61,7 +61,7 @@
                 </ul>
             </div>
             <div class="main-content">
-                <h3>Teacher Timetable: {{ selectedTeacher }}</h3>
+                    <h3>Instructor Timetable: {{ selectedTeacher }}</h3>
                 <div class="table-responsive">
                     <table>
                         <thead>
@@ -89,14 +89,14 @@
         <!-- Class Wise Tab -->
         <div *ngIf="activeTab === 'class'" class="timetable-section">
             <div class="class-selector">
-                <label>Select Class: </label>
+                <label>Select Batch: </label>
                 <select>
-                    <option>5-A</option>
-                    <option>5-B</option>
-                    <option>6-A</option>
+                    <option>PPL Batch A</option>
+                    <option>PPL Batch B</option>
+                    <option>CPL Batch A</option>
                 </select>
             </div>
-            <h3>Class Timetable: 5-A</h3>
+            <h3>Batch Timetable: {{ selectedClass }}</h3>
             <div class="table-responsive">
                 <table>
                     <thead>
@@ -106,7 +106,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr *ngFor="let row of classTimetable">
+                        <tr *ngFor="let row of batchTimetable">
                             <td class="row-header">{{ row.day }}</td>
                             <td *ngFor="let cell of row.periods">
                                 <div class="cell-content">

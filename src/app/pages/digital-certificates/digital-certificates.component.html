@@ -1,6 +1,6 @@
 <div class="page-container">
     <div class="header">
-        <h2>Approved TC Requests - Ready To Download</h2>
+        <h2>Approved Training Certificate Requests - Ready To Download</h2>
     </div>
 
     <div class="tabs">
@@ -19,7 +19,7 @@
                 </select>
             </div>
             <div class="filter-group">
-                <label>Filter by Student Group:</label>
+                <label>Filter by Trainee Group:</label>
                 <select>
                     <option>--Select--</option>
                 </select>
@@ -47,13 +47,13 @@
         <table>
             <thead>
                 <tr>
-                    <th>Roll No.</th>
-                    <th>TC No.</th>
-                    <th>Student Name</th>
-                    <th>Class & Division</th>
-                    <th>TC Requested On</th>
+                    <th>Trainee ID</th>
+                    <th>Certificate No.</th>
+                    <th>Trainee Name</th>
+                    <th>Course Batch</th>
+                    <th>Requested On</th>
                     <th>Reason</th>
-                    <th>Date Of Leaving</th>
+                    <th>Completion Date</th>
                     <th>Approved On</th>
                     <th>Approved By</th>
                     <th>Action</th>
@@ -61,13 +61,13 @@
             </thead>
             <tbody>
                 <tr *ngFor="let req of requests">
-                    <td>{{ req.rollNo }}</td>
-                    <td>{{ req.tcNo }}</td>
-                    <td>{{ req.studentName }}</td>
-                    <td>{{ req.classDivision }}</td>
+                    <td>{{ req.traineeId }}</td>
+                    <td>{{ req.certificateNo }}</td>
+                    <td>{{ req.traineeName }}</td>
+                    <td>{{ req.courseBatch }}</td>
                     <td>{{ req.requestedOn }}</td>
                     <td>{{ req.reason }}</td>
-                    <td>{{ req.dateOfLeaving }}</td>
+                    <td>{{ req.completionDate }}</td>
                     <td>{{ req.approvedOn }}</td>
                     <td>{{ req.approvedBy }}</td>
                     <td><a href="javascript:void(0)" class="download-link">Download</a></td>

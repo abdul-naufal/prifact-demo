@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="120" height="120">
+  <rect width="100%" height="100%" fill="#0a3d62" rx="8"/>
+  <path d="M8 32c0 0 18-8 32-8s32 8 32 8-18 8-32 8S8 32 8 32z" fill="#ffffff" opacity="0.08"/>
+  <path d="M10 48c0 0 3-3 12-4 7-1 20-1 27 0 6 1 12 3 12 3s-5-13-7-18c-2-5-12-11-17-11s-16 0-21 3c-6 3-7 13-6 18s0 9 0 9z" fill="#ffffff" />
+  <g fill="#ffffff">
+    <path d="M20 12c0 0 12 8 24 8l-8 8s-9-2-12-2-5-2-4-7z" opacity="0.95"/>
+    <rect x="28" y="28" width="8" height="4" rx="1"/>
+  </g>
+  <text x="50%" y="58" font-family="Arial, Helvetica, sans-serif" font-size="8" fill="#ffffff" text-anchor="middle">UpSkill Air</text>
+</svg>

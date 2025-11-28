@@ -16,16 +16,16 @@ export interface ClassSubject {
     styleUrls: ['./classes.component.css']
 })
 export class ClassesComponent {
-    classes = ['5A', '5B', '6A', '6B', '7A', '7B', '8A', '8B', '9A', '9B', '10A', '10B'];
+    classes = ['PPL Batch A', 'PPL Batch B', 'CPL Batch A', 'CPL Batch B', 'A&P Morning', 'A&P Evening', 'Simulator Morning'];
     selectedClass: string | null = null;
 
     // Mock subjects for the selected class
     subjects: ClassSubject[] = [
-        { id: 1, name: 'English', code: 'ENG', expanded: true, totalPeriods: 6, slots: [], teachers: ['Mittie Lida Bess (Prithvi.s)'] },
-        { id: 2, name: 'Mathematics', code: 'MATH', expanded: false, totalPeriods: 7, slots: [], teachers: ['John Doe (Math.d)'] },
-        { id: 3, name: 'Science', code: 'SCI', expanded: false, totalPeriods: 6, slots: [], teachers: [] },
-        { id: 4, name: 'Social Studies', code: 'SST', expanded: false, totalPeriods: 5, slots: [], teachers: ['Jane Smith (SST.j)'] },
-        { id: 5, name: 'Hindi', code: 'HIN', expanded: false, totalPeriods: 4, slots: [], teachers: [] }
+        { id: 1, name: 'Aerodynamics', code: 'AERO', expanded: true, totalPeriods: 6, slots: [], teachers: ['Alexander J. Carter'] },
+        { id: 2, name: 'Navigation & Flight Planning', code: 'NAV', expanded: false, totalPeriods: 7, slots: [], teachers: ['Sarah M. Lee'] },
+        { id: 3, name: 'Meteorology', code: 'MET', expanded: false, totalPeriods: 6, slots: [], teachers: ['David P. Martinez'] },
+        { id: 4, name: 'Flight Training (Dual/Solo)', code: 'FLIGHT', expanded: false, totalPeriods: 10, slots: [], teachers: ['James S. Fletcher'] },
+        { id: 5, name: 'Avionics & Electrical Systems', code: 'AVION', expanded: false, totalPeriods: 8, slots: [], teachers: ['Rebecca K. Ng'] }
     ];
 
     days = ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5', 'Day 6'];

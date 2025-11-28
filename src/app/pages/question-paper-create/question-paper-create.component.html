@@ -5,15 +5,15 @@
 
     <div class="form-content">
         <div class="form-group">
-            <label for="class">Class <span class="required">*</span></label>
-            <select id="class" [(ngModel)]="selectedClass" (ngModelChange)="onClassChange()" class="form-control"
+            <label for="course">Course <span class="required">*</span></label>
+            <select id="course" [(ngModel)]="selectedCourse" (ngModelChange)="onCourseChange()" class="form-control"
                 required>
-                <option value="" disabled selected>Select Class</option>
-                <option *ngFor="let cls of classes" [value]="cls">{{ cls }}</option>
+                <option value="" disabled selected>Select Course</option>
+                <option *ngFor="let c of courses" [value]="c">{{ c }}</option>
             </select>
         </div>
 
-        <div class="form-group" *ngIf="selectedClass">
+        <div class="form-group" *ngIf="selectedCourse">
             <label for="subject">Subject <span class="required">*</span></label>
             <select id="subject" [(ngModel)]="selectedSubject" class="form-control" required>
                 <option value="" disabled selected>Select Subject</option>
@@ -29,7 +29,7 @@
 
         <div class="form-actions">
             <button class="btn btn-primary" (click)="onSave()"
-                [disabled]="!selectedClass || !selectedSubject || !title">
+                [disabled]="!selectedCourse || !selectedSubject || !title">
                 Save
             </button>
             <button class="btn btn-secondary" (click)="onCancel()">

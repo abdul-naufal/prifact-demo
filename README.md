@@ -1,6 +1,6 @@
-# TimetableGenerator
+# UpSkill Air - Aviation School Demo
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.16.
+This project is a demo showing a flight school management UI built on an existing timetable/exam management template. The default content and demo data have been updated to be aviation-specific for use at an aviation training institute.
 
 ## Development server
 
