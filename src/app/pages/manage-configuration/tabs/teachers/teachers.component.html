@@ -1,11 +1,11 @@
-<div class="teachers-container">
+<div class="instructors-container">
     <div class="header-section">
-        <h2>Teachers</h2>
-        <button class="btn" (click)="onCreate()" *ngIf="!isCreating">Create New Teacher</button>
+        <h2>Instructors</h2>
+        <button class="btn" (click)="onCreate()" *ngIf="!isCreating">Create New Instructor</button>
     </div>
 
     <div class="create-form" *ngIf="isCreating">
-        <h3>{{ isEditing ? 'Edit Teacher' : 'Add New Teacher' }}</h3>
+        <h3>{{ isEditing ? 'Edit Instructor' : 'Add New Instructor' }}</h3>
         <div class="form-row">
             <div class="form-group">
                 <label>First Name</label>
@@ -25,37 +25,20 @@
             </div>
         </div>
         <div class="form-actions">
-            <button class="btn" (click)="onSave()">Save</button>
-            <button class="btn btn-outline" (click)="onCancel()">Cancel</button>
+            <button class="btn btn-primary" (click)="onSave()">{{ isEditing ? 'Update' : 'Save' }}</button>
+            <button class="btn btn-secondary" (click)="onCancel()">Cancel</button>
         </div>
     </div>
 
-    <div class="table-controls">
-        <div class="entries-control">
-            Show
-            <select class="form-control entries-select">
-                <option value="10">10</option>
-                <option value="25">25</option>
-                <option value="50">50</option>
-                <option value="100">100</option>
-            </select>
-            entries
-        </div>
-        <div class="search-control">
-            <label>Search:</label>
-            <input type="text" class="form-control search-input" placeholder="">
-        </div>
-    </div>
-
-    <div class="table-container">
-        <table>
+    <div class="list-view" *ngIf="!isCreating">
+        <table class="table">
             <thead>
                 <tr>
                     <th>First Name</th>
                     <th>Middle Name</th>
                     <th>Last Name</th>
                     <th>Code</th>
-                    <th>Actions</th>
+                    <th class="actions-header">Actions</th>
                 </tr>
             </thead>
             <tbody>

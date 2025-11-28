@@ -1,21 +1,21 @@
 <div class="page-container">
     <div class="header">
-        <h2>View Timetable</h2>
+        <h2>View Schedule</h2>
     </div>
 
     <div class="tabs">
-        <button class="tab" [class.active]="activeTab === 'school'" (click)="setActiveTab('school')">Flight School View
-            wise</button>
-        <button class="tab" [class.active]="activeTab === 'teacher'" (click)="setActiveTab('teacher')">Teacher
-            wise</button>
-        <button class="tab" [class.active]="activeTab === 'class'" (click)="setActiveTab('class')">Batch wise</button>
+        <button class="tab" [class.active]="activeTab === 'school'" (click)="setActiveTab('school')">Academy
+            Wise</button>
+        <button class="tab" [class.active]="activeTab === 'teacher'" (click)="setActiveTab('teacher')">Instructor
+            Wise</button>
+        <button class="tab" [class.active]="activeTab === 'class'" (click)="setActiveTab('class')">Course Wise</button>
     </div>
 
     <div class="tab-content">
-        <!-- School Wise Tab -->
+        <!-- Academy Wise Tab -->
         <div *ngIf="activeTab === 'school'" class="timetable-section school-wise-container">
             <div class="sidebar">
-                <h3>Classes</h3>
+                <h3>Courses</h3>
                 <ul>
                     <li *ngFor="let cls of classes" [class.selected]="selectedClass === cls" (click)="selectClass(cls)">
                         {{ cls }}
@@ -23,7 +23,7 @@
                 </ul>
             </div>
             <div class="main-content">
-                <h3>School Timetable (Selected Batch): {{ selectedClass }}</h3>
+                <h3>Academy Schedule (Selected Course): {{ selectedClass }}</h3>
                 <div class="table-responsive">
                     <table>
                         <thead>
@@ -48,10 +48,10 @@
             </div>
         </div>
 
-        <!-- Teacher Wise Tab -->
+        <!-- Instructor Wise Tab -->
         <div *ngIf="activeTab === 'teacher'" class="timetable-section school-wise-container">
             <div class="sidebar">
-                <h3>Teachers</h3>
+                <h3>Instructors</h3>
                 <ul>
                     <li *ngFor="let teacher of teachers" [class.selected]="selectedTeacher === teacher.name"
                         (click)="selectTeacher(teacher.name)">
@@ -61,7 +61,7 @@
                 </ul>
             </div>
             <div class="main-content">
-                    <h3>Instructor Timetable: {{ selectedTeacher }}</h3>
+                <h3>Instructor Schedule: {{ selectedTeacher }}</h3>
                 <div class="table-responsive">
                     <table>
                         <thead>
@@ -86,17 +86,17 @@
             </div>
         </div>
 
-        <!-- Class Wise Tab -->
+        <!-- Course Wise Tab -->
         <div *ngIf="activeTab === 'class'" class="timetable-section">
             <div class="class-selector">
-                <label>Select Batch: </label>
+                <label>Select Course: </label>
                 <select>
-                    <option>PPL Batch A</option>
-                    <option>PPL Batch B</option>
-                    <option>CPL Batch A</option>
+                    <option>PPL Course A</option>
+                    <option>PPL Course B</option>
+                    <option>CPL Course A</option>
                 </select>
             </div>
-            <h3>Batch Timetable: {{ selectedClass }}</h3>
+            <h3>Course Schedule: {{ selectedClass }}</h3>
             <div class="table-responsive">
                 <table>
                     <thead>
