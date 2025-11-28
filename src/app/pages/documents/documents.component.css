@@ -794,3 +794,40 @@
 .mb-10 {
     margin-bottom: 10px;
 }
+/* List View Actions */
+.actions-cell {
+    text-align: left;
+}
+
+.actions-cell .icon-btn {
+    background: none;
+    border: none;
+    padding: 6px;
+    cursor: pointer;
+    color: var(--text-secondary);
+    transition: all 0.2s;
+    border-radius: 4px;
+}
+
+.actions-cell .icon-btn:hover {
+    background-color: var(--bg-panel);
+    color: var(--primary);
+}
+
+.actions-cell .icon-btn .material-icons {
+    font-size: 20px;
+}
+
+/* Table alignment fixes */
+table th,
+table td {
+    text-align: left;
+    vertical-align: middle;
+}
+
+
+
+
+
+
+
