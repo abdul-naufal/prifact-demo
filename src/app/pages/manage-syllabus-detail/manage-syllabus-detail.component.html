@@ -21,23 +21,24 @@
         </div>
     </div>
 
-    <div class="table-container">
-        <div class="table-controls" style="padding: 15px 20px; border-bottom: 1px solid var(--border-color);">
-            <div class="entries-control">
-                Show
-                <select class="form-control entries-select">
-                    <option value="10">10</option>
-                    <option value="25">25</option>
-                    <option value="50">50</option>
-                    <option value="100">100</option>
-                </select>
-                entries
-            </div>
-            <div class="search-control">
-                <label>Search:</label>
-                <input type="text" class="form-control search-input" placeholder="">
-            </div>
+    <div class="table-controls">
+        <div class="entries-control">
+            Show
+            <select class="form-control entries-select">
+                <option value="10">10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+            </select>
+            entries
         </div>
+        <div class="search-control">
+            <label>Search:</label>
+            <input type="text" class="form-control search-input" placeholder="">
+        </div>
+    </div>
+
+    <div class="table-container">
         <table>
             <thead>
                 <tr>
@@ -64,7 +65,7 @@
                     <td>{{ subject.internalAssessmentMark }}</td>
                     <td>{{ subject.examHours }}</td>
                     <td>{{ subject.examMark }}</td>
-                    <td>{{ subject.isTheory }}</td>
+                    <td>{{ subject.isTheory ? 'Yes' : 'No' }}</td>
                     <td>{{ subject.subjectType }}</td>
                     <td class="actions-cell">
                         <button class="icon-btn" title="Manage">⚙</button>

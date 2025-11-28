@@ -64,17 +64,6 @@ h2 {
     color: var(--text-primary);
 }
 
-/* Table Controls */
-.table-controls {
-    margin-bottom: var(--spacing-md);
-    display: flex;
-    justify-content: flex-end;
-}
-
-.search-input {
-    width: 250px;
-}
-
 /* Table styles inherited from global styles.css */
 
 .actions-cell {
