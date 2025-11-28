@@ -231,6 +231,46 @@ tr:hover td {
     background: #f8fafc;
 }
 
+
+/* Table Controls */
+.table-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: var(--spacing-md);
+    padding: var(--spacing-sm) 0;
+}
+
+.entries-control {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.entries-select {
+    width: auto;
+    padding: 6px 10px;
+    display: inline-block;
+}
+
+.search-control {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.search-control label {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+}
+
+.search-input {
+    width: 250px;
+    padding: 6px 12px;
+}
+
 /* Forms */
 .form-control {
     width: 100%;
