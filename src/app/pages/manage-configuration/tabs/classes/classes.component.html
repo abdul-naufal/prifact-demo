@@ -65,9 +65,9 @@
                     </div>
                 </div>
 
-                <div class="allow-on-section">
+                <div class="allow-on-section" *ngIf="allowOnValues">
                     <label>Allow on:</label>
-                    <span class="allow-values">{{ allowOnValues || 'None selected' }}</span>
+                    <span class="allow-values">{{ allowOnValues }}</span>
                 </div>
 
                 <!-- Grid with Slot Controls and Delete Button -->

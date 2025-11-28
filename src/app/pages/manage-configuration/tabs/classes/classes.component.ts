@@ -16,8 +16,8 @@ export interface ClassSubject {
     styleUrls: ['./classes.component.css']
 })
 export class ClassesComponent {
-    classes = ['5-A', '5-B', '5-C', '6-A', '6-B', '6-C', '6-D'];
-    selectedClass: string | null = '5-A';
+    classes = ['PPL-2023-A', 'PPL-2023-B', 'CPL-2023-A', 'CPL-2023-B', 'ATPL-2024-A', 'IR-2024-A', 'FI-2024-A'];
+    selectedClass: string | null = 'PPL-2023-A';
     selectedSubject: ClassSubject | null = null;
 
     // Aviation subjects for the selected class
