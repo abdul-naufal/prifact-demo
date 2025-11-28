@@ -10,6 +10,9 @@ import { ManageSyllabusDetailComponent } from './pages/manage-syllabus-detail/ma
 import { DigitalCertificatesComponent } from './pages/digital-certificates/digital-certificates.component';
 import { ViewTimetableComponent } from './pages/view-timetable/view-timetable.component';
 import { ClassesComponent } from './pages/manage-configuration/tabs/classes/classes.component';
+import { QuestionPapersComponent } from './pages/question-papers/question-papers.component';
+import { QuestionPaperCreateComponent } from './pages/question-paper-create/question-paper-create.component';
+import { QuestionPaperDesignComponent } from './pages/question-paper-design/question-paper-design.component';
 
 const routes: Routes = [
   {
@@ -31,7 +34,10 @@ const routes: Routes = [
         ]
       },
       { path: 'digital-certificates', component: DigitalCertificatesComponent },
-      { path: 'view-timetable', component: ViewTimetableComponent }
+      { path: 'view-timetable', component: ViewTimetableComponent },
+      { path: 'question-papers', component: QuestionPapersComponent },
+      { path: 'question-papers/create', component: QuestionPaperCreateComponent },
+      { path: 'question-papers/:id/design', component: QuestionPaperDesignComponent }
     ]
   }
 ];

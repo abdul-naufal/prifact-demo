@@ -1,0 +1,122 @@
+<div class="design-container">
+    <div class="top-actions">
+        <button class="btn btn-secondary" (click)="goBack()">Back</button>
+        <button class="btn btn-primary" (click)="saveQuestionPaper()">Save question paper</button>
+    </div>
+
+    <div class="design-content">
+        <div class="paper-header">
+            <div class="header-content">
+                <div>
+                    <h2>{{ questionPaperTitle }}</h2>
+                    <p class="class-info">Class: {{ questionPaperClass }} | Subject: {{ questionPaperSubject }}</p>
+                </div>
+                <div class="total-marks-display">Total Marks: {{ totalMarks }}</div>
+            </div>
+        </div>
+
+        <div class="main-area">
+            <div class="form-design" id="form-design">
+                <!-- Sections -->
+                <div *ngFor="let section of sections; let i = index" class="section">
+                    <div class="section-header">
+                        <div class="section-title-area">
+                            <span class="drag-handle">⋮⋮</span>
+                            <button class="collapse-btn" (click)="section.collapsed = !section.collapsed">
+                                {{ section.collapsed ? '▶' : '▼' }}
+                            </button>
+                            <h3>{{ section.name }}</h3>
+                        </div>
+                        <button class="delete-link" (click)="deleteSection(section.id)">Delete Section</button>
+                    </div>
+
+                    <div class="section-content" *ngIf="!section.collapsed">
+                        <textarea [(ngModel)]="section.description"
+                            placeholder="Enter description for this section here"
+                            class="section-description"></textarea>
+
+                        <!-- Questions in this section -->
+                        <div *ngFor="let question of section.questions; let qi = index" class="question">
+                            <div class="question-header">
+                                <div class="question-title-area">
+                                    <span class="drag-handle">⋮⋮</span>
+                                    <button class="collapse-btn" (click)="question.collapsed = !question.collapsed">
+                                        {{ question.collapsed ? '▶' : '▼' }}
+                                    </button>
+                                    <span class="question-label">Question: {{ qi + 1 }}</span>
+                                    <span class="marks-label">Marks: {{ question.marks }}</span>
+                                </div>
+                                <button class="delete-link" (click)="deleteQuestion(section.id, question.id)">Delete
+                                    Question</button>
+                            </div>
+
+                            <div class="question-content" *ngIf="!question.collapsed">
+                                <input *ngIf="question.type === 'multiple-choice'" type="text"
+                                    [(ngModel)]="question.text" placeholder="Form the multiple choice question here..."
+                                    class="question-input">
+
+                                <textarea *ngIf="question.type === 'descriptive'" [(ngModel)]="question.text"
+                                    placeholder="Enter descriptive question here..." class="question-input"></textarea>
+
+                                <input *ngIf="question.type === 'file-upload'" type="text" [(ngModel)]="question.text"
+                                    placeholder="Enter file upload question here..." class="question-input">
+
+                                <!-- Options for multiple choice -->
+                                <div *ngIf="question.type === 'multiple-choice' && question.options" class="options">
+                                    <div *ngFor="let option of question.options; let oi = index" class="option">
+                                        <label>Choice {{ oi }}</label>
+                                        <input type="text" [(ngModel)]="question.options![oi]"
+                                            placeholder="Enter option">
+                                    </div>
+                                </div>
+
+                                <!-- Marks input -->
+                                <div class="marks-input">
+                                    <label>Marks:</label>
+                                    <input type="number" [(ngModel)]="question.marks"
+                                        (ngModelChange)="calculateTotalMarks()" min="1">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add Elements Panel -->
+            <div class="add-panel">
+                <div class="add-item" draggable="true">
+                    <span class="drag-handle">⋮⋮</span>
+                    <button class="add-btn" (click)="addSection()">Section</button>
+                </div>
+                <div class="add-item" draggable="true">
+                    <span class="drag-handle">⋮⋮</span>
+                    <button class="add-btn">Static Text</button>
+                </div>
+                <div class="add-item" draggable="true">
+                    <span class="drag-handle">⋮⋮</span>
+                    <button class="add-btn"
+                        (click)="sections.length > 0 && addQuestion(sections[sections.length - 1].id, 'multiple-choice')"
+                        [disabled]="sections.length === 0">
+                        Multiple Choice Question
+                    </button>
+                </div>
+                <div class="add-item" draggable="true">
+                    <span class="drag-handle">⋮⋮</span>
+                    <button class="add-btn"
+                        (click)="sections.length > 0 && addQuestion(sections[sections.length - 1].id, 'descriptive')"
+                        [disabled]="sections.length === 0">
+                        Descriptive Question
+                    </button>
+                </div>
+                <div class="add-item" draggable="true">
+                    <span class="drag-handle">⋮⋮</span>
+                    <button class="add-btn"
+                        (click)="sections.length > 0 && addQuestion(sections[sections.length - 1].id, 'file-upload')"
+                        [disabled]="sections.length === 0">
+                        File Upload Question
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

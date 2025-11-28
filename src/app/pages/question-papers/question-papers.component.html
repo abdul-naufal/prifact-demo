@@ -1,0 +1,43 @@
+<div class="question-papers-container">
+  <div class="header">
+    <h2>Question Papers</h2>
+    <button class="create-btn" routerLink="/question-papers/create">Create New</button>
+  </div>
+
+  <div class="table-container">
+    <table>
+      <thead>
+        <tr>
+          <th>Title</th>
+          <th>Class & Subject</th>
+          <th>Total Marks</th>
+          <th>Created by</th>
+          <th>Last Updated</th>
+          <th>Status</th>
+          <th>Share</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let paper of questionPapers">
+          <td>{{ paper.title }}</td>
+          <td>{{ paper.class }} - {{ paper.subject }}</td>
+          <td>{{ paper.totalMarks }}</td>
+          <td>{{ paper.createdBy }}</td>
+          <td>{{ paper.lastUpdated | date:'mediumDate' }}</td>
+          <td>
+            <span class="status-badge" [ngClass]="paper.status.toLowerCase()">
+              {{ paper.status }}
+            </span>
+          </td>
+          <td>
+            <input type="checkbox">
+          </td>
+          <td>
+            <button class="action-menu-btn">⋮</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

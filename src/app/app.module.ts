@@ -17,6 +17,9 @@ import { DigitalCertificatesComponent } from './pages/digital-certificates/digit
 import { ViewTimetableComponent } from './pages/view-timetable/view-timetable.component';
 
 import { ClassesComponent } from './pages/manage-configuration/tabs/classes/classes.component';
+import { QuestionPapersComponent } from './pages/question-papers/question-papers.component';
+import { QuestionPaperCreateComponent } from './pages/question-paper-create/question-paper-create.component';
+import { QuestionPaperDesignComponent } from './pages/question-paper-design/question-paper-design.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +34,10 @@ import { ClassesComponent } from './pages/manage-configuration/tabs/classes/clas
     ManageSyllabusComponent,
     ManageSyllabusDetailComponent,
     DigitalCertificatesComponent,
-    ViewTimetableComponent
+    ViewTimetableComponent,
+    QuestionPapersComponent,
+    QuestionPaperCreateComponent,
+    QuestionPaperDesignComponent
   ],
   imports: [
     BrowserModule,
