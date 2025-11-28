@@ -21,6 +21,7 @@ import { ClassesComponent } from './pages/manage-configuration/tabs/classes/clas
 import { QuestionPapersComponent } from './pages/question-papers/question-papers.component';
 import { QuestionPaperCreateComponent } from './pages/question-paper-create/question-paper-create.component';
 import { QuestionPaperDesignComponent } from './pages/question-paper-design/question-paper-design.component';
+import { DocumentsComponent } from './pages/documents/documents.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,7 @@ import { QuestionPaperDesignComponent } from './pages/question-paper-design/ques
     QuestionPapersComponent,
     QuestionPaperCreateComponent,
     QuestionPaperDesignComponent
-    ,DashboardComponent
+    ,DashboardComponent, DocumentsComponent
   ],
   imports: [
     BrowserModule,

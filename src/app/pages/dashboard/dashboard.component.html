@@ -18,7 +18,8 @@
                 <ul class="session-list">
                     <li *ngFor="let s of upcoming">
                         <div class="session-title">{{ s.title }}</div>
-                        <div class="session-meta">{{ s.date }} &bull; {{ s.time }} &nbsp;|&nbsp; {{ s.batch }} &nbsp;|&nbsp; Instructor: {{ s.instructor }}</div>
+                        <div class="session-meta">{{ s.date }} &bull; {{ s.time }} &nbsp;|&nbsp; {{ s.batch }}
+                            &nbsp;|&nbsp; Instructor: {{ s.instructor }}</div>
                         <div class="session-status">{{ s.status }}</div>
                     </li>
                 </ul>
@@ -36,6 +37,7 @@
                 <div class="actions">
                     <button class="btn">Create New Flight</button>
                     <button class="btn btn-outline">Issue Certificate</button>
+                    <button class="btn btn-outline" routerLink="/documents">View Documents</button>
                 </div>
             </div>
         </div>

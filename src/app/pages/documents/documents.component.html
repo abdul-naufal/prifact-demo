@@ -1,0 +1,228 @@
+<div class="documents-container">
+    <div class="header">
+        <h2>Documents</h2>
+        <button class="btn-upload" (click)="openUploadModal()">
+            <span class="material-icons">cloud_upload</span>
+            Upload New File
+        </button>
+    </div>
+
+    <!-- Prominent Search Bar -->
+    <div class="search-section">
+        <div class="search-bar-large">
+            <span class="material-icons search-icon">search</span>
+            <input type="text" placeholder="Search for documents, files, or folders..." [(ngModel)]="searchQuery"
+                (input)="onSearch()">
+            <button class="btn-search" *ngIf="searchQuery" (click)="clearSearch()">
+                <span class="material-icons">close</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- Filters -->
+    <div class="filters-bar">
+        <div class="filter-group">
+            <label>Type:</label>
+            <select class="form-control filter-select">
+                <option value="all">All Types</option>
+                <option value="pdf">PDF</option>
+                <option value="doc">Word</option>
+                <option value="image">Image</option>
+            </select>
+        </div>
+        <div class="filter-group">
+            <label>Sort By:</label>
+            <select class="form-control filter-select">
+                <option value="date-desc">Newest First</option>
+                <option value="date-asc">Oldest First</option>
+                <option value="name-asc">Name (A-Z)</option>
+                <option value="size-desc">Size (Largest)</option>
+            </select>
+        </div>
+        <div class="view-toggle">
+            <button class="icon-btn" [class.active]="viewMode === 'grid'" (click)="viewMode = 'grid'" title="Grid View">
+                <span class="material-icons">grid_view</span>
+            </button>
+            <button class="icon-btn" [class.active]="viewMode === 'list'" (click)="viewMode = 'list'" title="List View">
+                <span class="material-icons">view_list</span>
+            </button>
+        </div>
+    </div>
+
+    <!-- File Grid -->
+    <div class="files-grid" *ngIf="viewMode === 'grid'">
+        <div class="file-card" *ngFor="let file of filteredFiles">
+            <div class="file-icon" [ngClass]="file.type">
+                <span class="material-icons" *ngIf="file.type === 'folder'">folder</span>
+                <span class="material-icons" *ngIf="file.type === 'pdf'">picture_as_pdf</span>
+                <span class="material-icons" *ngIf="file.type === 'doc'">description</span>
+                <span class="material-icons" *ngIf="file.type === 'image'">image</span>
+                <span class="material-icons" *ngIf="file.type === 'video'">movie</span>
+            </div>
+            <div class="file-info">
+                <h4 class="file-name" title="{{ file.name }}">{{ file.name }}</h4>
+                <div class="file-meta">
+                    <span class="file-date">{{ file.date | date:'mediumDate' }}</span>
+                    <span class="file-size" *ngIf="file.size">{{ file.size }}</span>
+                </div>
+            </div>
+            <div class="file-actions">
+                <button class="icon-btn-sm" title="Download">
+                    <span class="material-icons">download</span>
+                </button>
+                <button class="icon-btn-sm" title="Share">
+                    <span class="material-icons">share</span>
+                </button>
+                <button class="icon-btn-sm" title="More">
+                    <span class="material-icons">more_vert</span>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- File List -->
+    <div class="files-list" *ngIf="viewMode === 'list'">
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Date Modified</th>
+                        <th>Type</th>
+                        <th>Size</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let file of filteredFiles">
+                        <td>
+                            <div class="list-name">
+                                <span class="material-icons list-icon" [ngClass]="file.type">
+                                    {{ getIcon(file.type) }}
+                                </span>
+                                {{ file.name }}
+                            </div>
+                        </td>
+                        <td>{{ file.date | date:'mediumDate' }}</td>
+                        <td class="uppercase">{{ file.type }}</td>
+                        <td>{{ file.size || '-' }}</td>
+                        <td class="actions-cell">
+                            <button class="icon-btn" title="Download">
+                                <span class="material-icons">download</span>
+                            </button>
+                            <button class="icon-btn" title="Share">
+                                <span class="material-icons">share</span>
+                            </button>
+                            <button class="icon-btn" title="More">
+                                <span class="material-icons">more_vert</span>
+                            </button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Upload Modal -->
+    <div class="modal-backdrop" *ngIf="isUploadModalOpen">
+        <div class="modal-dialog">
+            <div class="modal-header">
+                <h3>Upload New Document</h3>
+                <button class="btn-close" (click)="closeUploadModal()">
+                    <span class="material-icons">close</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>Document Title</label>
+                    <input type="text" class="form-control" [(ngModel)]="newDoc.title"
+                        placeholder="Enter document title">
+                </div>
+
+                <div class="form-group">
+                    <label>Category</label>
+                    <select class="form-control" [(ngModel)]="newDoc.category">
+                        <option value="general">General</option>
+                        <option value="training">Training Material</option>
+                        <option value="exam">Exam Paper</option>
+                        <option value="manual">Manual/Handbook</option>
+                        <option value="policy">Policy Document</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>Keywords</label>
+                    <input type="text" class="form-control" [(ngModel)]="newDoc.keywords"
+                        placeholder="Enter keywords (comma separated)">
+                </div>
+
+                <div class="form-group">
+                    <label>Filters</label>
+                    <div class="filters-container">
+                        <!-- Selected Filters Badges -->
+                        <div class="filter-badge" *ngFor="let filter of newDoc.filters; let i = index">
+                            <span class="filter-category">{{ filter.category }}:</span>
+                            <span class="filter-value">{{ filter.value }}</span>
+                            <span class="remove-filter" (click)="removeFilter(i)">×</span>
+                        </div>
+
+                        <!-- Add Filter Button & Dropdown -->
+                        <div class="add-filter-wrapper">
+                            <button class="btn-add-filter" (click)="toggleFilterDropdown()">
+                                <span class="material-icons">tune</span>
+                                Add Filter
+                                <span class="material-icons">expand_more</span>
+                            </button>
+
+                            <div class="filter-dropdown" *ngIf="isFilterDropdownOpen">
+                                <!-- Step 1: Categories -->
+                                <div class="dropdown-menu" *ngIf="!activeFilterCategory">
+                                    <div class="dropdown-item" *ngFor="let opt of availableFilters"
+                                        (click)="selectFilterCategory(opt.category)">
+                                        {{ opt.category }}
+                                        <span class="material-icons">chevron_right</span>
+                                    </div>
+                                </div>
+
+                                <!-- Step 2: Values -->
+                                <div class="dropdown-menu" *ngIf="activeFilterCategory">
+                                    <div class="dropdown-header" (click)="activeFilterCategory = null">
+                                        <span class="material-icons">arrow_back</span>
+                                        {{ activeFilterCategory }}
+                                    </div>
+                                    <ng-container *ngFor="let opt of availableFilters">
+                                        <ng-container *ngIf="opt.category === activeFilterCategory">
+                                            <div class="dropdown-item" *ngFor="let val of opt.values"
+                                                (click)="selectFilterValue(val)">
+                                                {{ val }}
+                                            </div>
+                                        </ng-container>
+                                    </ng-container>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Description</label>
+                    <textarea class="form-control" [(ngModel)]="newDoc.description" rows="3"
+                        placeholder="Enter description (optional)"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>File</label>
+                    <div class="file-drop-zone">
+                        <span class="material-icons">cloud_upload</span>
+                        <p>Drag & drop file here or click to browse</p>
+                        <input type="file" (change)="onFileSelected($event)">
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-cancel" (click)="closeUploadModal()">Cancel</button>
+                <button class="btn-upload-action" (click)="uploadDocument()">Upload</button>
+            </div>
+        </div>
+    </div>
+</div>
