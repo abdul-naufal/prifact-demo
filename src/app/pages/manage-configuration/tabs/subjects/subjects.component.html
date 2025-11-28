@@ -2,22 +2,51 @@
 
     <!-- SECTION 1: OPTIONAL GROUPS -->
     <div class="section-container">
-        <h2>Optional Groups</h2>
-        <div class="actions-bar">
-            <button class="btn-primary" (click)="onCreateGroup()" *ngIf="!isCreatingGroup">Create New Group</button>
+        <div class="section-header">
+            <h2>Optional Groups</h2>
+            <button class="btn" (click)="onCreateGroup()" *ngIf="!isCreatingGroup">Create New Group</button>
         </div>
 
         <!-- Group Form -->
         <div class="create-form" *ngIf="isCreatingGroup">
             <h3>{{ isEditingGroup ? 'Edit Group' : 'Add New Group' }}</h3>
             <div class="form-row">
-                <input type="text" placeholder="Display Name" [(ngModel)]="newGroup.displayName">
-                <input type="text" placeholder="Description" [(ngModel)]="newGroup.description">
-                <input type="text" placeholder="Code" [(ngModel)]="newGroup.code">
+                <div class="form-group">
+                    <label>Display Name</label>
+                    <input type="text" class="form-control" placeholder="Display Name"
+                        [(ngModel)]="newGroup.displayName">
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <input type="text" class="form-control" placeholder="Description"
+                        [(ngModel)]="newGroup.description">
+                </div>
+                <div class="form-group">
+                    <label>Code</label>
+                    <input type="text" class="form-control" placeholder="Code" [(ngModel)]="newGroup.code">
+                </div>
             </div>
             <div class="form-actions">
-                <button class="btn-save" (click)="onSaveGroup()">Save</button>
-                <button class="btn-cancel" (click)="onCancelGroup()">Cancel</button>
+                <button class="btn" (click)="onSaveGroup()">Save</button>
+                <button class="btn btn-outline" (click)="onCancelGroup()">Cancel</button>
+            </div>
+        </div>
+
+        <!-- Group Table Controls -->
+        <div class="table-controls">
+            <div class="entries-control">
+                Show
+                <select class="form-control entries-select">
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+                entries
+            </div>
+            <div class="search-control">
+                <label>Search:</label>
+                <input type="text" class="form-control search-input" placeholder="">
             </div>
         </div>
 
@@ -51,23 +80,51 @@
 
     <!-- SECTION 2: SUBJECTS -->
     <div class="section-container">
-        <h2>Subjects</h2>
-        <div class="actions-bar">
-            <button class="btn-primary" (click)="onCreateSubject()" *ngIf="!isCreatingSubject">Create New
-                Subject</button>
+        <div class="section-header">
+            <h2>Subjects</h2>
+            <button class="btn" (click)="onCreateSubject()" *ngIf="!isCreatingSubject">Create New Subject</button>
         </div>
 
         <!-- Subject Form -->
         <div class="create-form" *ngIf="isCreatingSubject">
             <h3>{{ isEditingSubject ? 'Edit Subject' : 'Add New Subject' }}</h3>
             <div class="form-row">
-                <input type="text" placeholder="Display Name" [(ngModel)]="newSubject.displayName">
-                <input type="text" placeholder="Description" [(ngModel)]="newSubject.description">
-                <input type="text" placeholder="Code" [(ngModel)]="newSubject.code">
+                <div class="form-group">
+                    <label>Display Name</label>
+                    <input type="text" class="form-control" placeholder="Display Name"
+                        [(ngModel)]="newSubject.displayName">
+                </div>
+                <div class="form-group">
+                    <label>Description</label>
+                    <input type="text" class="form-control" placeholder="Description"
+                        [(ngModel)]="newSubject.description">
+                </div>
+                <div class="form-group">
+                    <label>Code</label>
+                    <input type="text" class="form-control" placeholder="Code" [(ngModel)]="newSubject.code">
+                </div>
             </div>
             <div class="form-actions">
-                <button class="btn-save" (click)="onSaveSubject()">Save</button>
-                <button class="btn-cancel" (click)="onCancelSubject()">Cancel</button>
+                <button class="btn" (click)="onSaveSubject()">Save</button>
+                <button class="btn btn-outline" (click)="onCancelSubject()">Cancel</button>
+            </div>
+        </div>
+
+        <!-- Subject Table Controls -->
+        <div class="table-controls">
+            <div class="entries-control">
+                Show
+                <select class="form-control entries-select">
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+                entries
+            </div>
+            <div class="search-control">
+                <label>Search:</label>
+                <input type="text" class="form-control search-input" placeholder="">
             </div>
         </div>
 
@@ -92,7 +149,7 @@
                             <button class="icon-btn" title="Delete" (click)="onDeleteSubject(subject)">🗑</button>
 
                             <!-- Move to Group Dropdown -->
-                            <select class="group-select" [(ngModel)]="subject.groupId"
+                            <select class="group-select form-control" [(ngModel)]="subject.groupId"
                                 (ngModelChange)="onSubjectGroupChange(subject)">
                                 <option [ngValue]="undefined">Move to Group...</option>
                                 <option *ngFor="let group of groups" [ngValue]="group.id">

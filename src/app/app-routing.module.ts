@@ -28,7 +28,7 @@ const routes: Routes = [
         path: 'manage-configuration', // Modified path
         component: ManageConfigurationComponent,
         children: [
-          { path: '', redirectTo: 'subjects', pathMatch: 'full' },
+          { path: '', redirectTo: 'teachers', pathMatch: 'full' },
           { path: 'subjects', component: SubjectsComponent },
           { path: 'teachers', component: TeachersComponent },
           { path: 'classes', component: ClassesComponent }

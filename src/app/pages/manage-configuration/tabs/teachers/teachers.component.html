@@ -1,20 +1,49 @@
 <div class="teachers-container">
-    <div class="actions-bar">
-        <button class="btn-primary" (click)="onCreate()" *ngIf="!isCreating">Create New Teacher</button>
-        <input type="text" placeholder="Filter" class="filter-input" *ngIf="!isCreating">
+    <div class="header-section">
+        <h2>Teachers</h2>
+        <button class="btn" (click)="onCreate()" *ngIf="!isCreating">Create New Teacher</button>
     </div>
 
     <div class="create-form" *ngIf="isCreating">
         <h3>{{ isEditing ? 'Edit Teacher' : 'Add New Teacher' }}</h3>
         <div class="form-row">
-            <input type="text" placeholder="First Name" [(ngModel)]="newTeacher.firstName">
-            <input type="text" placeholder="Middle Name" [(ngModel)]="newTeacher.middleName">
-            <input type="text" placeholder="Last Name" [(ngModel)]="newTeacher.lastName">
-            <input type="text" placeholder="Code" [(ngModel)]="newTeacher.code">
+            <div class="form-group">
+                <label>First Name</label>
+                <input type="text" class="form-control" placeholder="First Name" [(ngModel)]="newTeacher.firstName">
+            </div>
+            <div class="form-group">
+                <label>Middle Name</label>
+                <input type="text" class="form-control" placeholder="Middle Name" [(ngModel)]="newTeacher.middleName">
+            </div>
+            <div class="form-group">
+                <label>Last Name</label>
+                <input type="text" class="form-control" placeholder="Last Name" [(ngModel)]="newTeacher.lastName">
+            </div>
+            <div class="form-group">
+                <label>Code</label>
+                <input type="text" class="form-control" placeholder="Code" [(ngModel)]="newTeacher.code">
+            </div>
         </div>
         <div class="form-actions">
-            <button class="btn-save" (click)="onSave()">Save</button>
-            <button class="btn-cancel" (click)="onCancel()">Cancel</button>
+            <button class="btn" (click)="onSave()">Save</button>
+            <button class="btn btn-outline" (click)="onCancel()">Cancel</button>
+        </div>
+    </div>
+
+    <div class="table-controls">
+        <div class="entries-control">
+            Show
+            <select class="form-control entries-select">
+                <option value="10">10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+            </select>
+            entries
+        </div>
+        <div class="search-control">
+            <label>Search:</label>
+            <input type="text" class="form-control search-input" placeholder="">
         </div>
     </div>
 

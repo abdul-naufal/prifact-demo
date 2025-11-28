@@ -18,7 +18,10 @@ export class MainLayoutComponent implements OnInit {
     '/question-papers': 'EXAM PAPERS',
     '/digital-certificates': 'CERTIFICATES',
     '/question-papers/create': 'CREATE EXAM PAPER',
-    '/question-papers/design': 'DESIGN EXAM PAPER'
+    '/question-papers/design': 'DESIGN EXAM PAPER',
+    '/manage-configuration/teachers': 'CONFIGURATION - TEACHERS',
+    '/manage-configuration/subjects': 'CONFIGURATION - SUBJECTS',
+    '/manage-configuration/classes': 'CONFIGURATION - CLASSES'
   };
 
   constructor(private router: Router, private activatedRoute: ActivatedRoute) { }
